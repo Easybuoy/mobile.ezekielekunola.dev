@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Card from "./components/Card";
 import { NotificationIcon } from "./components/Icons";
 import Logo from "./components/Logo";
-import logoData from "./data/logos";
+import { logoData, cardsData } from "./data";
 
 export default function App() {
   return (
@@ -25,11 +25,13 @@ export default function App() {
 
           <ScrollView
             horizontal={true}
+            showsHorizontalScrollIndicator={false}
             style={{
               flexDirection: "row",
               padding: 20,
               paddingLeft: 12,
               paddingTop: 30,
+              paddingRight: 20,
             }}
           >
             {logoData.map((logo) => (
@@ -43,30 +45,20 @@ export default function App() {
             showsHorizontalScrollIndicator={false}
             style={{ paddingBottom: 30 }}
           >
-            <Card
-              title="Styled Components"
-              image={require("./assets/background2.jpg")}
-              caption="React Native"
-              logo={require("./assets/logo-react.png")}
-              subtitle="5 of 12 sections"
-            />
-
-            <Card
-              title="Styled Components"
-              image={require("./assets/background2.jpg")}
-              caption="React Native"
-              logo={require("./assets/logo-react.png")}
-              subtitle="5 of 12 sections"
-            />
-
-            <Card
-              title="Styled Components"
-              image={require("./assets/background2.jpg")}
-              caption="React Native"
-              logo={require("./assets/logo-react.png")}
-              subtitle="5 of 12 sections"
-            />
+            {cardsData.map((card) => (
+              <Card
+                key={card.title}
+                title={card.title}
+                image={card.image}
+                caption={card.caption}
+                logo={card.logo}
+                subtitle={card.subtitle}
+              />
+            ))}
           </ScrollView>
+
+          <Subtitle></Subtitle>
+          
         </ScrollView>
       </SafeAreaView>
     </Container>
