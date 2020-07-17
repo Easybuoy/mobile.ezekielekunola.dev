@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "./components/Card";
+
+
 
 export default function App() {
   return (
@@ -10,6 +13,8 @@ export default function App() {
         <Name>Ezekiel</Name>
       </TitleBar>
       <Subtitle>Continue Learning</Subtitle>
+
+      <Card />
     </Container>
   );
 }
