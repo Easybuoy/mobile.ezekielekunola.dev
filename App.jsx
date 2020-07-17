@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Card from "./components/Card";
 import { NotificationIcon } from "./components/Icons";
 import Logo from "./components/Logo";
+import logoData from "./data/logos";
 
 export default function App() {
   return (
@@ -16,12 +17,25 @@ export default function App() {
             <Avatar source={require("./assets/avatar.jpg")} />
             <Title>Welcome Back,</Title>
             <Name>Ezekiel</Name>
-            
+
             <NotificationIcon
               style={{ position: "absolute", right: 20, top: 5 }}
             />
           </TitleBar>
-          <Logo image={require("./assets/logo-framerx.png")} text="Framer x" />
+
+          <ScrollView
+            horizontal={true}
+            style={{
+              flexDirection: "row",
+              padding: 20,
+              paddingLeft: 12,
+              paddingTop: 30,
+            }}
+          >
+            {logoData.map((logo) => (
+              <Logo key={logo.text} image={logo.image} text={logo.text} />
+            ))}
+          </ScrollView>
           <Subtitle>Continue Learning</Subtitle>
 
           <ScrollView
@@ -97,6 +111,6 @@ const Subtitle = styled.Text`
   font-weight: 600;
   font-size: 15px;
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   text-transform: uppercase;
 `;
