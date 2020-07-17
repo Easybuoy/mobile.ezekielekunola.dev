@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Animated, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+const screenHeight = Dimensions.get("window").height;
+
 const Menu = () => {
-  const [top, setTop] = useState(new Animated.Value(900));
+  const [top, setTop] = useState(new Animated.Value(screenHeight));
 
   useEffect(() => {
     Animated.spring(top, {
@@ -14,15 +17,28 @@ const Menu = () => {
 
   const toggleMenu = () => {
     Animated.spring(top, {
-      toValue: 900,
+      toValue: screenHeight,
       useNativeDriver: false,
     }).start();
   };
 
   return (
     <AnimatedContainer style={{ top }}>
-      <Cover></Cover>
-      <TouchableOpacity onPress={toggleMenu}>
+      <Cover>
+        <Image source={require("../assets/background2.jpg")} />
+        <Title>Ezekiel Ekunola</Title>
+        <Subtitle>Developer at EasyTech</Subtitle>
+      </Cover>
+      <TouchableOpacity
+        onPress={toggleMenu}
+        style={{
+          position: "absolute",
+          top: 120,
+          left: "50%",
+          marginLeft: -22,
+          zIndex: 1,
+        }}
+      >
         <CloseView>
           <Ionicons name="ios-close" size={44} color="#546bfb" />
         </CloseView>
@@ -47,10 +63,12 @@ const AnimatedContainer = Animated.createAnimatedComponent(Container);
 const Cover = styled.View`
   height: 142px;
   background: black;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Content = styled.View`
-  height: 900px;
+  height: ${`${screenHeight}px`};
   background: #f0f3f5;
 `;
 
@@ -61,4 +79,23 @@ const CloseView = styled.View`
   background: white;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+`;
+
+const Image = styled.Image`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
+
+const Title = styled.Text`
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 8px;
 `;
