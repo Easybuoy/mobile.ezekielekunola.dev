@@ -6,7 +6,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Card from "./components/Card";
 import { NotificationIcon } from "./components/Icons";
 import Logo from "./components/Logo";
-import { logoData, cardsData } from "./data";
+import { logoData, cardsData, coursesData } from "./data";
+import Course from "./components/Course";
 
 export default function App() {
   return (
@@ -57,8 +58,25 @@ export default function App() {
             ))}
           </ScrollView>
 
-          <Subtitle></Subtitle>
-          
+          <Subtitle>Popular Courses</Subtitle>
+
+          <ScrollView>
+            {
+              coursesData.map((course) => (
+                <Course 
+                  key={course.title}
+                  image={course.image}
+                  title={course.title}
+                  subtitle={course.subtitle}
+                  logo={course.logo}
+                  author={course.author}
+                  avatar={course.avatar}
+                  caption={course.caption}
+                />
+              )) 
+            }
+          </ScrollView>
+
         </ScrollView>
       </SafeAreaView>
     </Container>
