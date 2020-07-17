@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Animated, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import { menuData } from "../data";
+import MenuItem from "./MenuItem";
+
 const screenHeight = Dimensions.get("window").height;
 
 const Menu = () => {
@@ -43,7 +46,16 @@ const Menu = () => {
           <Ionicons name="ios-close" size={44} color="#546bfb" />
         </CloseView>
       </TouchableOpacity>
-      <Content></Content>
+      <Content>
+        {menuData.map((menu) => (
+          <MenuItem
+            key={menu.title}
+            icon={menu.icon}
+            title={menu.title}
+            text={menu.text}
+          />
+        ))}
+      </Content>
     </AnimatedContainer>
   );
 };
@@ -70,6 +82,7 @@ const Cover = styled.View`
 const Content = styled.View`
   height: ${`${screenHeight}px`};
   background: #f0f3f5;
+  padding: 50px;
 `;
 
 const CloseView = styled.View`

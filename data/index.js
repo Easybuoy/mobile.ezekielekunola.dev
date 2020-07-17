@@ -95,3 +95,26 @@ export const coursesData = [
       "Complete guide to designing a site using a collaborative design tool",
   },
 ];
+
+export const menuData = [
+  {
+    icon: "ios-person",
+    title: "Profile",
+    text: "profile",
+  },
+  {
+    icon: "ios-card",
+    title: "Billing",
+    text: "payments",
+  },
+  {
+    icon: "ios-settings",
+    title: "Account",
+    text: "settings",
+  },
+  {
+    icon: "ios-exit",
+    title: "Logout",
+    text: "see you soon!",
+  },
+];
