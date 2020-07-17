@@ -8,10 +8,12 @@ import { NotificationIcon } from "./components/Icons";
 import Logo from "./components/Logo";
 import { logoData, cardsData, coursesData } from "./data";
 import Course from "./components/Course";
+import Menu from "./components/Menu";
 
 export default function App() {
   return (
     <Container>
+      <Menu />
       <SafeAreaView>
         <ScrollView>
           <TitleBar>
@@ -61,22 +63,19 @@ export default function App() {
           <Subtitle>Popular Courses</Subtitle>
 
           <ScrollView>
-            {
-              coursesData.map((course) => (
-                <Course 
-                  key={course.title}
-                  image={course.image}
-                  title={course.title}
-                  subtitle={course.subtitle}
-                  logo={course.logo}
-                  author={course.author}
-                  avatar={course.avatar}
-                  caption={course.caption}
-                />
-              )) 
-            }
+            {coursesData.map((course) => (
+              <Course
+                key={course.title}
+                image={course.image}
+                title={course.title}
+                subtitle={course.subtitle}
+                logo={course.logo}
+                author={course.author}
+                avatar={course.avatar}
+                caption={course.caption}
+              />
+            ))}
           </ScrollView>
-
         </ScrollView>
       </SafeAreaView>
     </Container>
