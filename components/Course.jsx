@@ -48,7 +48,7 @@ const Image = styled.Image`
 const Logo = styled.Image`
   width: 48px;
   height: 48px;
-  top: 90px;
+  top: 30px;
   position: absolute;
   left: 50%;
   margin-left: -24px;
@@ -61,7 +61,7 @@ const Title = styled.Text`
   margin-top: 4px;
   margin-bottom: 20px;
   margin-left: 20px;
-  width: 170px;
+  width: 300px;
 `;
 
 const Content = styled.View`

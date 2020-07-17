@@ -29,23 +29,31 @@ export default function App() {
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
-            style={{
-              flexDirection: "row",
-              padding: 20,
+            contentContainerStyle={{
+              paddingRight: 12,
               paddingLeft: 12,
               paddingTop: 30,
-              paddingRight: 20,
+            }}
+            style={{
+              flexDirection: "row",
+              // padding: 20,
+              // paddingLeft: 12,
+              // paddingTop: 30,
+              // paddingRight: 20,
             }}
           >
             {logoData.map((logo) => (
               <Logo key={logo.text} image={logo.image} text={logo.text} />
             ))}
           </ScrollView>
-          <Subtitle>Continue Learning</Subtitle>
+          <Subtitle>Projects</Subtitle>
 
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingRight: 20
+            }}
             style={{ paddingBottom: 30 }}
           >
             {cardsData.map((card) => (
@@ -60,9 +68,13 @@ export default function App() {
             ))}
           </ScrollView>
 
-          <Subtitle>Popular Courses</Subtitle>
+          <Subtitle>Articles</Subtitle>
 
-          <ScrollView>
+          <ScrollView
+            contentContainerStyle={{
+              alignItems: "center",
+            }}
+          >
             {coursesData.map((course) => (
               <Course
                 key={course.title}
