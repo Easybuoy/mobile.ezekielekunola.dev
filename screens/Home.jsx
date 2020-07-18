@@ -17,7 +17,7 @@ const Home = () => {
       <SafeAreaView>
         <ScrollView>
           <TitleBar>
-            <Avatar source={require("./assets/avatar.jpg")} />
+            <Avatar source={require("../assets/avatar.jpg")} />
             <Title>Welcome Back,</Title>
             <Name>Ezekiel</Name>
 
