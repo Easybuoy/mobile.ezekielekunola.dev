@@ -36,10 +36,6 @@ export default function App() {
             }}
             style={{
               flexDirection: "row",
-              // padding: 20,
-              // paddingLeft: 12,
-              // paddingTop: 30,
-              // paddingRight: 20,
             }}
           >
             {logoData.map((logo) => (

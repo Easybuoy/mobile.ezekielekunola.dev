@@ -1,27 +1,27 @@
 export const logoData = [
   {
-    image: require("../assets/logo-framerx.png"),
-    text: "Framer x",
+    image: require("../assets/logo-nodejs.png"),
+    text: "Nodejs",
   },
   {
-    image: require("../assets/logo-figma.png"),
-    text: "Figma",
-  },
-  {
-    image: require("../assets/logo-studio.png"),
-    text: "Studio",
+    image: require("../assets/logo-vue.png"),
+    text: "Vue",
   },
   {
     image: require("../assets/logo-react.png"),
     text: "React",
   },
   {
-    image: require("../assets/logo-swift.png"),
-    text: "Swift",
+    image: require("../assets/logo-php.png"),
+    text: "PHP",
   },
   {
-    image: require("../assets/logo-sketch.png"),
-    text: "Sketch",
+    image: require("../assets/logo-graphql.png"),
+    text: "GraphQL",
+  },
+  {
+    image: require("../assets/logo-netlify.png"),
+    text: "Netlify",
   },
 ];
 

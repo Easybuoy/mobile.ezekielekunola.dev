@@ -21,6 +21,7 @@ const Container = stlyed.View`
   align-items: center;
   margin: 0 8px;
   border-radius: 10px;
+
 `;
 
 const Image = stlyed.Image`
