@@ -1,10 +1,8 @@
-import { } from '../types'
+import { CLOSE_MENU } from "../types";
 
-export const addPlace = (title, image, location) => {
-  return async (dispatch) => {
-    dispatch({
-      type: ADD_PLACE,
-      payload: {},
-    });
+export const closeMenu = () => {
+  return {
+    type: CLOSE_MENU,
+    payload: {},
   };
 };

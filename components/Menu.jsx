@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Animated, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector, useDispatch } from "react-redux";
 
 import { menuData } from "../data";
 import MenuItem from "./MenuItem";
@@ -10,19 +11,27 @@ const screenHeight = Dimensions.get("window").height;
 
 const Menu = () => {
   const [top, setTop] = useState(new Animated.Value(screenHeight));
-
+  const menuStateAction = useSelector((state) => state.action.action);
+  const dispatch = useDispatch();
+  console.log(menuStateAction);
   useEffect(() => {
-    Animated.spring(top, {
-      toValue: 0,
-      useNativeDriver: false,
-    }).start();
+    toggleMenu();
   }, []);
 
   const toggleMenu = () => {
-    Animated.spring(top, {
-      toValue: screenHeight,
-      useNativeDriver: false,
-    }).start();
+    if (menuStateAction === "openMenu") {
+      Animated.spring(top, {
+        toValue: 0,
+        useNativeDriver: false,
+      }).start();
+    }
+
+    if (menuStateAction === "closeMenu") {
+      Animated.spring(top, {
+        toValue: screenHeight,
+        useNativeDriver: false,
+      }).start();
+    }
   };
 
   return (
