@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import { menuData } from "../data";
+import { closeMenu } from "../store/actions/action";
 import MenuItem from "./MenuItem";
 
 const screenHeight = Dimensions.get("window").height;
@@ -13,15 +14,19 @@ const Menu = () => {
   const [top, setTop] = useState(new Animated.Value(screenHeight));
   const menuStateAction = useSelector((state) => state.action.action);
   const dispatch = useDispatch();
-  console.log(menuStateAction);
+
   useEffect(() => {
     toggleMenu();
-  }, []);
+  }, [menuStateAction]);
+
+  const closeMenuHandler = () => {
+    dispatch(closeMenu());
+  };
 
   const toggleMenu = () => {
     if (menuStateAction === "openMenu") {
       Animated.spring(top, {
-        toValue: 0,
+        toValue: 54,
         useNativeDriver: false,
       }).start();
     }
@@ -42,7 +47,7 @@ const Menu = () => {
         <Subtitle>Developer at EasyTech</Subtitle>
       </Cover>
       <TouchableOpacity
-        onPress={toggleMenu}
+        onPress={closeMenuHandler}
         style={{
           position: "absolute",
           top: 120,
@@ -77,6 +82,8 @@ const Container = styled.View`
   width: 100%;
   height: 100%;
   z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 const AnimatedContainer = Animated.createAnimatedComponent(Container);
