@@ -18,7 +18,7 @@ import { logoData, cardsData, coursesData } from "../data";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
   const [opacity] = useState(new Animated.Value(1));
   const dispatch = useDispatch();
@@ -113,14 +113,18 @@ const Home = () => {
               style={{ paddingBottom: 30 }}
             >
               {cardsData.map((card) => (
-                <Card
+                <TouchableOpacity
                   key={card.title}
-                  title={card.title}
-                  image={card.image}
-                  caption={card.caption}
-                  logo={card.logo}
-                  subtitle={card.subtitle}
-                />
+                  onPress={() => navigation.push("Section")}
+                >
+                  <Card
+                    title={card.title}
+                    image={card.image}
+                    caption={card.caption}
+                    logo={card.logo}
+                    subtitle={card.subtitle}
+                  />
+                </TouchableOpacity>
               ))}
             </ScrollView>
 
