@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "react-native";
 
 const Projects = ({ navigation }) => {
   return (
     <Container>
       <Text>Projects Screen</Text>
-      <Button title="Close" onPress={() => navigation.goBack()}></Button>
     </Container>
   );
 };

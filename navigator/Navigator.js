@@ -5,6 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Home from "../screens/Home";
 import Section from "../screens/Section";
+import Projects from "../screens/Projects";
+import Courses from "../screens/Courses";
 
 const Stack = createStackNavigator();
 
@@ -41,13 +43,8 @@ const CoursesStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Section"
-        component={Section}
+        name="Courses"
+        component={Courses}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -58,13 +55,8 @@ const ProjectsStack = () => {
   return (
     <Stack.Navigator mode="modal">
       <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Section"
-        component={Section}
+        name="Projects"
+        component={Projects}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -84,7 +76,9 @@ const TabNavigator = () => {
         component={HomeStack}
         options={({ route }) => {
           let tabBarVisible = true;
-          const routeName = route.state.routeNames[route.state.index];
+
+          const routeName =
+            route.state && route.state.routeNames[route.state.index];
 
           if (routeName === "Section") {
             tabBarVisible = false;
@@ -105,7 +99,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Courses"
-        component={SectionStack}
+        component={CoursesStack}
         options={{
           tabBarLabel: "Course",
           tabBarIcon: ({ focused }) => (
