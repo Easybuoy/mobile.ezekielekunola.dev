@@ -53,7 +53,7 @@ const CoursesStack = () => {
 
 const ProjectsStack = () => {
   return (
-    <Stack.Navigator mode="modal">
+    <Stack.Navigator>
       <Stack.Screen
         name="Projects"
         component={Projects}

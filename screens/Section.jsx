@@ -26,7 +26,7 @@ const Section = ({ route, navigation }) => {
         <Caption>{section.caption}</Caption>
       </Cover>
       <TouchableOpacity
-        style={{ position: "absolute", top: 20, right: 20 }}
+        style={{ position: "absolute", top: 30, right: 20 }}
         onPress={() => navigation.goBack()}
       >
         <CloseView>
