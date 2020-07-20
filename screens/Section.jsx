@@ -1,31 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { SafeAreaView, TouchableOpacity } from "react-native";
+import { TouchableOpacity, StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const Section = ({ route }) => {
+const Section = ({ route, navigation }) => {
   const { section } = route.params;
-  console.log(section);
+
+  useEffect(() => {
+    StatusBar.setBarStyle("light-content", true);
+
+    return () => {
+      StatusBar.setBarStyle("dark-content", true);
+    };
+  });
   return (
-    <SafeAreaView>
-      <Container>
-        <Cover>
-          <Image source={section.image} />
-          <Title>{section.title}</Title>
-          <Caption>{section.caption}</Caption>
-        </Cover>
-        <TouchableOpacity style={{ position: "absolute", top: 20, right: 20 }}>
-          <CloseView>
-            <Ionicons
-              name="ios-close"
-              size={36}
-              color="#4475f2"
-              style={{ marginTop: -2 }}
-            />
-          </CloseView>
-        </TouchableOpacity>
-      </Container>
-    </SafeAreaView>
+    <Container>
+      <StatusBar hidden />
+      <Cover>
+        <Image source={section.image} />
+        <Wrapper>
+          <Logo source={section.logo} />
+          <Subtitle>{section.subtitle}</Subtitle>
+        </Wrapper>
+        <Title>{section.title}</Title>
+        <Caption>{section.caption}</Caption>
+      </Cover>
+      <TouchableOpacity
+        style={{ position: "absolute", top: 20, right: 20 }}
+        onPress={() => navigation.goBack()}
+      >
+        <CloseView>
+          <Ionicons
+            name="ios-close"
+            size={36}
+            color="#4475f2"
+            style={{ marginTop: -2 }}
+          />
+        </CloseView>
+      </TouchableOpacity>
+    </Container>
   );
 };
 
@@ -72,4 +85,25 @@ const CloseView = styled.View`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
   justify-content: center;
   align-items: center;
+`;
+
+const Wrapper = styled.View`
+  flex-direction: row;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  align-items: center;
+`;
+
+const Logo = styled.Image`
+  width: 24px;
+  height: 24px;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 5px;
+  text-transform: uppercase;
 `;
