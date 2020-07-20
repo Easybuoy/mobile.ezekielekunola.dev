@@ -115,7 +115,7 @@ const Home = ({ navigation }) => {
               {cardsData.map((card) => (
                 <TouchableOpacity
                   key={card.title}
-                  onPress={() => navigation.push("Section")}
+                  onPress={() => navigation.push("Section", { section: card })}
                 >
                   <Card
                     title={card.title}
