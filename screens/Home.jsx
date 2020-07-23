@@ -18,10 +18,6 @@ import { logoData, cardsData, coursesData } from "../data";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
 
-import { API_KEY } from "@env";
-
-console.log(API_KEY, "API");
-
 const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
   const [opacity] = useState(new Animated.Value(1));
