@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { TouchableOpacity, StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { WebView } from "react-native-webview";
 
 const Section = ({ route, navigation }) => {
   const { section } = route.params;
@@ -38,11 +39,20 @@ const Section = ({ route, navigation }) => {
           />
         </CloseView>
       </TouchableOpacity>
+
+      <Content>
+        <WebView />
+      </Content>
     </Container>
   );
 };
 
 export default Section;
+
+const htmlContent = `
+<h2>Title </h2>
+<p>A <strong>link</strong></p>
+`;
 
 const Container = styled.View`
   flex: 1;
@@ -107,3 +117,5 @@ const Subtitle = styled.Text`
   margin-left: 5px;
   text-transform: uppercase;
 `;
+
+const Content = styled.View``;

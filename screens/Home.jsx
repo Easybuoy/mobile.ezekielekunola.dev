@@ -121,20 +121,6 @@ const Home = ({ navigation }) => {
                 }}
                 style={{ paddingBottom: 30 }}
               >
-                {/* {cardsData.map((card) => (
-                <TouchableOpacity
-                  key={card.title}
-                  onPress={() => navigation.push("Section", { section: card })}
-                >
-                  <Card
-                    title={card.title}
-                    image={card.image}
-                    caption={card.caption}
-                    logo={card.logo}
-                    subtitle={card.subtitle}
-                  />
-                </TouchableOpacity>
-              ))} */}
                 {data.cardsCollection.items.map((card) => (
                   <TouchableOpacity
                     key={card.title}
