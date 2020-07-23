@@ -7,9 +7,12 @@ import {
   Animated,
   Easing,
   StatusBar,
+  ActivityIndicator,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "react-apollo";
 
+import { CARDSQUERY } from "../graphql/queries";
 import { openMenu } from "../store/actions/action";
 import Card from "../components/Card";
 import { NotificationIcon } from "../components/Icons";
@@ -23,6 +26,7 @@ const Home = ({ navigation }) => {
   const [opacity] = useState(new Animated.Value(1));
   const dispatch = useDispatch();
   const menuStateAction = useSelector((state) => state.action.action);
+  const { loading, error, data } = useQuery(CARDSQUERY);
 
   const toggleMenu = () => {
     if (menuStateAction === "openMenu") {
@@ -104,15 +108,20 @@ const Home = ({ navigation }) => {
             </ScrollView>
             <Subtitle>Projects</Subtitle>
 
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{
-                paddingRight: 20,
-              }}
-              style={{ paddingBottom: 30 }}
-            >
-              {cardsData.map((card) => (
+            {loading === true ? (
+              <Spinner>
+                <ActivityIndicator size="large" color="#000" />
+              </Spinner>
+            ) : (
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  paddingRight: 20,
+                }}
+                style={{ paddingBottom: 30 }}
+              >
+                {/* {cardsData.map((card) => (
                 <TouchableOpacity
                   key={card.title}
                   onPress={() => navigation.push("Section", { section: card })}
@@ -125,8 +134,25 @@ const Home = ({ navigation }) => {
                     subtitle={card.subtitle}
                   />
                 </TouchableOpacity>
-              ))}
-            </ScrollView>
+              ))} */}
+                {data.cardsCollection.items.map((card) => (
+                  <TouchableOpacity
+                    key={card.title}
+                    onPress={() =>
+                      navigation.push("Section", { section: card })
+                    }
+                  >
+                    <Card
+                      title={card.title}
+                      image={card.image}
+                      caption={card.caption}
+                      logo={card.logo}
+                      subtitle={card.subtitle}
+                    />
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            )}
 
             <Subtitle>Articles</Subtitle>
 
@@ -205,4 +231,8 @@ const Subtitle = styled.Text`
   margin-left: 20px;
   margin-top: 20px;
   text-transform: uppercase;
+`;
+
+const Spinner = styled.View`
+  align-items: center;
 `;
