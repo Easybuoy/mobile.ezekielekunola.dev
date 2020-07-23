@@ -7,6 +7,7 @@ const CARDSQUERY = gql`
         title
         caption
         subtitle
+        content
         logo {
           title
           description

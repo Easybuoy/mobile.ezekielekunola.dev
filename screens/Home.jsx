@@ -110,7 +110,7 @@ const Home = ({ navigation }) => {
 
             {loading === true ? (
               <Spinner>
-                <ActivityIndicator size="large" color="#000" />
+                <ActivityIndicator size="large" color="#4475f2" />
               </Spinner>
             ) : (
               <ScrollView
@@ -134,6 +134,7 @@ const Home = ({ navigation }) => {
                       caption={card.caption}
                       logo={card.logo}
                       subtitle={card.subtitle}
+                      content={card.content}
                     />
                   </TouchableOpacity>
                 ))}
