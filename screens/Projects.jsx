@@ -5,11 +5,42 @@ import { PanResponder, Animated } from "react-native";
 import Project from "../components/Projects";
 
 const Projects = ({ navigation }) => {
-  const [pan, setPan] = useState(new Animated.Value());
+  const [pan, setPan] = useState(new Animated.ValueXY());
+  const [panResponderHandler, setPanResponderHandler] = useState({});
+
+  useEffect(() => {
+    const panResponderHandler = PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event(
+        [
+          null,
+          {
+            dx: pan.x,
+            dy: pan.y,
+          },
+        ],
+        { useNativeDriver: false }
+      ),
+    });
+
+    setPanResponderHandler(panResponderHandler);
+  }, []);
 
   return (
     <Container>
-      <Project />
+      <Animated.View
+        style={{
+          transform: [
+            {
+              translateX: pan.x,
+            },
+            { translateY: pan.y },
+          ],
+        }}
+        {...panResponderHandler.panHandlers}
+      >
+        <Project />
+      </Animated.View>
     </Container>
   );
 };
