@@ -124,18 +124,18 @@ export const projectsData = [
     title: "Price Tag",
     image: require("../assets/background5.jpg"),
     author: "Liu Yi",
-    text: "I designed mmmm",
+    text: "I designed 1st one",
   },
   {
     title: "Price Tag",
     image: require("../assets/background6.jpg"),
     author: "Liu Yi",
-    text: "I designed mmmm",
+    text: "I designed 2nd one",
   },
   {
     title: "Price Tag",
     image: require("../assets/background7.jpg"),
     author: "Liu Yi",
-    text: "I designed mmmm",
+    text: "I designed 3rd one",
   },
 ];
