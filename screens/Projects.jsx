@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { PanResponder, Animated } from "react-native";
+
+import Project from "../components/Projects";
 
 const Projects = ({ navigation }) => {
+  const [pan, setPan] = useState(new Animated.Value());
+
   return (
     <Container>
-      <Text>Projects Screen</Text>
+      <Project />
     </Container>
   );
 };
