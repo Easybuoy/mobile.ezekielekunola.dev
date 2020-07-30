@@ -118,3 +118,24 @@ export const menuData = [
     text: "see you soon!",
   },
 ];
+
+export const projectsData = [
+  {
+    title: "Price Tag",
+    image: require("../assets/background5.jpg"),
+    author: "Liu Yi",
+    text: "I designed mmmm",
+  },
+  {
+    title: "Price Tag",
+    image: require("../assets/background6.jpg"),
+    author: "Liu Yi",
+    text: "I designed mmmm",
+  },
+  {
+    title: "Price Tag",
+    image: require("../assets/background7.jpg"),
+    author: "Liu Yi",
+    text: "I designed mmmm",
+  },
+];
