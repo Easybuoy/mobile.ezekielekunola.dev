@@ -45,7 +45,12 @@ const Projects = ({ navigation }) => {
         }}
         {...panResponderHandler.panHandlers}
       >
-        <Project />
+        <Project
+          title="Price Tag"
+          image={require("../assets/background5.jpg")}
+          author="Ezekiel"
+          text="Thanks to akjdbadka dakjdasdk aj dajhda d ajs dasjd ajds"
+        />
       </Animated.View>
     </Container>
   );
