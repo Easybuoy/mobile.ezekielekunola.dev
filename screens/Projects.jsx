@@ -21,6 +21,12 @@ const Projects = ({ navigation }) => {
         ],
         { useNativeDriver: false }
       ),
+      onPanResponderRelease: () => {
+        Animated.spring(pan, {
+          toValue: { x: 0, y: 0 },
+          useNativeDriver: false,
+        }).start();
+      },
     });
 
     setPanResponderHandler(panResponderHandler);
