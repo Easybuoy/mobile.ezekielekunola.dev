@@ -52,6 +52,21 @@ const Projects = ({ navigation }) => {
           text="Thanks to akjdbadka dakjdasdk aj dajhda d ajs dasjd ajds"
         />
       </Animated.View>
+
+      <Animated.View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: -1,
+          width: "100%",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Project />
+      </Animated.View>
     </Container>
   );
 };
