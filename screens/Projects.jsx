@@ -7,9 +7,21 @@ import Project from "../components/Projects";
 const Projects = ({ navigation }) => {
   const [pan, setPan] = useState(new Animated.ValueXY());
   const [panResponderHandler, setPanResponderHandler] = useState({});
+  const [scale, setScale] = useState(new Animated.Value(0.9));
+  const [translateY, setTranslateY] = useState(new Animated.Value(44));
 
   useEffect(() => {
     const panResponderHandler = PanResponder.create({
+      onPanResponderGrant: () => {
+        Animated.spring(scale, {
+          toValue: 1,
+          useNativeDriver: false,
+        }).start();
+        Animated.spring(translateY, {
+          toValue: 0,
+          useNativeDriver: false,
+        }).start();
+      },
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event(
         [
@@ -24,6 +36,16 @@ const Projects = ({ navigation }) => {
       onPanResponderRelease: () => {
         Animated.spring(pan, {
           toValue: { x: 0, y: 0 },
+          useNativeDriver: false,
+        }).start();
+
+        Animated.spring(scale, {
+          toValue: 0.9,
+          useNativeDriver: false,
+        }).start();
+
+        Animated.spring(translateY, {
+          toValue: 44,
           useNativeDriver: false,
         }).start();
       },
@@ -63,6 +85,14 @@ const Projects = ({ navigation }) => {
           height: "100%",
           justifyContent: "center",
           alignItems: "center",
+          transform: [
+            {
+              scale: scale,
+            },
+            {
+              translateY: translateY,
+            },
+          ],
         }}
       >
         <Project />
