@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Animated } from "react-native";
 
 const Projects = ({ title, image, author, text }) => {
+  const [cardWidth] = useState(new Animated.Value(315));
+  const [cardHeight] = useState(new Animated.Value(460));
+
+  const openCard = () => {
+
+  }
+  
   return (
-    <Container>
+    <AnimatedContainer style={{ width: cardWidth, height: cardHeight }}>
       <Cover>
         <Image source={image} />
         <Title>{title}</Title>
         <Author>by {author}</Author>
       </Cover>
       <Text>{text}</Text>
-    </Container>
+    </AnimatedContainer>
   );
 };
 
@@ -23,6 +31,8 @@ const Container = styled.View`
   background-color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 `;
+
+const AnimatedContainer = Animated.createAnimatedComponent(Container);
 
 const Cover = styled.View`
   height: 290px;
