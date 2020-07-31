@@ -17,6 +17,7 @@ const Projects = ({ title, image, author, text }) => {
   const [cardWidth] = useState(new Animated.Value(315));
   const [cardHeight] = useState(new Animated.Value(460));
   const [titleTop] = useState(new Animated.Value(20));
+  const [opacity] = useState(new Animated.Value(0));
 
   const openCard = () => {
     Animated.spring(cardWidth, {
@@ -30,6 +31,11 @@ const Projects = ({ title, image, author, text }) => {
 
     Animated.spring(titleTop, {
       toValue: 40,
+      useNativeDriver: false,
+    }).start();
+
+    Animated.timing(opacity, {
+      toValue: 1,
       useNativeDriver: false,
     }).start();
 
@@ -51,6 +57,11 @@ const Projects = ({ title, image, author, text }) => {
       useNativeDriver: false,
     }).start();
 
+    Animated.timing(opacity, {
+      toValue: 0,
+      useNativeDriver: false,
+    }).start();
+
     StatusBar.setHidden(false);
   };
 
@@ -68,9 +79,9 @@ const Projects = ({ title, image, author, text }) => {
           style={{ position: "absolute", right: 20, top: 20 }}
           onPress={closeCard}
         >
-          <CloseView>
+          <AnimatedCloseView style={{ opacity }}>
             <Ionicons name="ios-close" size={32} color="#546bfb" />
-          </CloseView>
+          </AnimatedCloseView>
         </TouchableOpacity>
       </AnimatedContainer>
     </TouchableWithoutFeedback>
@@ -138,3 +149,5 @@ const CloseView = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+const AnimatedCloseView = Animated.createAnimatedComponent(CloseView);
