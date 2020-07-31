@@ -20,6 +20,7 @@ import Logo from "../components/Logo";
 import { logoData, cardsData, coursesData } from "../data";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
+import ModalLogin from "../components/ModalLogin";
 
 const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
@@ -164,6 +165,8 @@ const Home = ({ navigation }) => {
           </ScrollView>
         </SafeAreaView>
       </AnimatedContainer>
+
+      <ModalLogin />
     </RootView>
   );
 };
