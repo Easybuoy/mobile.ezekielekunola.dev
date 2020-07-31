@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Animated, TouchableWithoutFeedback, Dimensions } from "react-native";
+import {
+  Animated,
+  TouchableWithoutFeedback,
+  Dimensions,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
+const tabBarHeight = 83;
 
 const Projects = ({ title, image, author, text }) => {
   const [cardWidth] = useState(new Animated.Value(315));
   const [cardHeight] = useState(new Animated.Value(460));
+  const [titleTop] = useState(new Animated.Value(20));
 
   const openCard = () => {
     Animated.spring(cardWidth, {
@@ -15,9 +24,34 @@ const Projects = ({ title, image, author, text }) => {
       useNativeDriver: false,
     }).start();
     Animated.spring(cardHeight, {
-      toValue: screenHeight,
+      toValue: screenHeight - tabBarHeight,
       useNativeDriver: false,
     }).start();
+
+    Animated.spring(titleTop, {
+      toValue: 40,
+      useNativeDriver: false,
+    }).start();
+
+    StatusBar.setHidden(true);
+  };
+
+  const closeCard = () => {
+    Animated.spring(cardWidth, {
+      toValue: 315,
+      useNativeDriver: false,
+    }).start();
+    Animated.spring(cardHeight, {
+      toValue: 460,
+      useNativeDriver: false,
+    }).start();
+
+    Animated.spring(titleTop, {
+      toValue: 20,
+      useNativeDriver: false,
+    }).start();
+
+    StatusBar.setHidden(false);
   };
 
   return (
@@ -25,10 +59,19 @@ const Projects = ({ title, image, author, text }) => {
       <AnimatedContainer style={{ width: cardWidth, height: cardHeight }}>
         <Cover>
           <Image source={image} />
-          <Title>{title}</Title>
+          <AnimatedTitle style={{ top: titleTop }}>{title}</AnimatedTitle>
           <Author>by {author}</Author>
         </Cover>
         <Text>{text}</Text>
+
+        <TouchableOpacity
+          style={{ position: "absolute", right: 20, top: 20 }}
+          onPress={closeCard}
+        >
+          <CloseView>
+            <Ionicons name="ios-close" size={32} color="#546bfb" />
+          </CloseView>
+        </TouchableOpacity>
       </AnimatedContainer>
     </TouchableWithoutFeedback>
   );
@@ -68,6 +111,8 @@ const Title = styled.Text`
   width: 300px;
 `;
 
+const AnimatedTitle = Animated.createAnimatedComponent(Title);
+
 const Author = styled.Text`
   position: absolute;
   bottom: 20px;
@@ -83,4 +128,13 @@ const Text = styled.Text`
   margin: 20px;
   line-height: 24px;
   color: #3c4560;
+`;
+
+const CloseView = styled.View`
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
 `;
