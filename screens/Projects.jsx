@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PanResponder, Animated } from "react-native";
 
-import Project from "../components/Projects";
+import Project from "../components/Project";
 import { projectsData } from "../data";
 
 const getNextIndex = (index) => {
@@ -26,7 +26,12 @@ const Projects = ({ navigation }) => {
 
   useEffect(() => {
     const panResponderHandler = PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (event, gestureState) => {
+        if (gestureState.dx === 0 && gestureState.dy === 0) {
+          return false;
+        }
+        return true;
+      },
       onPanResponderGrant: () => {
         Animated.spring(scale, {
           toValue: 1,
@@ -124,6 +129,7 @@ const Projects = ({ navigation }) => {
           image={projectsData[index].image}
           author={projectsData[index].author}
           text={projectsData[index].text}
+          canOpen={true}
         />
       </Animated.View>
 

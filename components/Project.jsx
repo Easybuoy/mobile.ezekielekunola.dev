@@ -8,18 +8,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector, useDispatch } from "react-redux";
+
+import { openCard as openReduxCard, closeCard as closeReduxCard } from "../store/actions/action";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 const tabBarHeight = 83;
 
-const Projects = ({ title, image, author, text }) => {
+const Project = ({ title, image, author, text, canOpen }) => {
   const [cardWidth] = useState(new Animated.Value(315));
   const [cardHeight] = useState(new Animated.Value(460));
   const [titleTop] = useState(new Animated.Value(20));
   const [opacity] = useState(new Animated.Value(0));
+  const dispatch = useDispatch();
 
   const openCard = () => {
+    if (!canOpen) return;
+
     Animated.spring(cardWidth, {
       toValue: screenWidth,
       useNativeDriver: false,
@@ -40,6 +46,7 @@ const Projects = ({ title, image, author, text }) => {
     }).start();
 
     StatusBar.setHidden(true);
+    dispatch(openReduxCard());
   };
 
   const closeCard = () => {
@@ -63,6 +70,7 @@ const Projects = ({ title, image, author, text }) => {
     }).start();
 
     StatusBar.setHidden(false);
+    dispatch(closeReduxCard());
   };
 
   return (
@@ -88,7 +96,7 @@ const Projects = ({ title, image, author, text }) => {
   );
 };
 
-export default Projects;
+export default Project;
 
 const Container = styled.View`
   width: 315px;
