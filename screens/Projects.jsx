@@ -65,14 +65,14 @@ const Projects = ({ navigation }) => {
           Animated.timing(pan, {
             toValue: { x: 0, y: 1000 },
             useNativeDriver: false,
-            duration: 1000,
           }).start(() => {
             pan.setValue({ x: 0, y: 0 });
             scale.setValue(0.9);
             translateY.setValue(44);
             thirdScale.setValue(0.8);
             thirdTranslateY.setValue(-50);
-            setIndex(getNextIndex(index));
+            const nextIndex = getNextIndex(index);
+            setIndex(nextIndex);
           });
         } else {
           Animated.spring(pan, {
@@ -104,7 +104,7 @@ const Projects = ({ navigation }) => {
     });
 
     setPanResponderHandler(panResponderHandler);
-  }, []);
+  }, [index]);
 
   return (
     <Container>
@@ -150,7 +150,7 @@ const Projects = ({ navigation }) => {
         <Project
           title={projectsData[getNextIndex(index)].title}
           image={projectsData[getNextIndex(index)].image}
-          text={projectsData[getNextIndex(index)].title}
+          text={projectsData[getNextIndex(index)].text}
           author={projectsData[getNextIndex(index)].author}
         />
       </Animated.View>
@@ -178,7 +178,7 @@ const Projects = ({ navigation }) => {
         <Project
           title={projectsData[getNextIndex(index + 1)].title}
           image={projectsData[getNextIndex(index + 1)].image}
-          text={projectsData[getNextIndex(index + 1)].title}
+          text={projectsData[getNextIndex(index + 1)].text}
           author={projectsData[getNextIndex(index + 1)].author}
         />
       </Animated.View>
