@@ -5,9 +5,23 @@ import { TouchableOpacity } from "react-native";
 const ModalLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [iconEmail, setIconEmail] = useState(
+    require("../assets/icon-email.png")
+  );
+  const [iconPasswrod, setIconPasswrod] = useState(
+    require("../assets/icon-password.png")
+  );
 
-  const loginHandler = () => {
-      
+  const loginHandler = () => {};
+
+  const focusEmail = () => {
+    setIconEmail(require("../assets/icon-email-animated.gif"));
+    setIconPasswrod(require("../assets/icon-password.png"));
+  };
+
+  const focusPassword = () => {
+    setIconEmail(require("../assets/icon-email.png"));
+    setIconPasswrod(require("../assets/icon-password-animated.gif"));
   };
 
   return (
@@ -20,15 +34,17 @@ const ModalLogin = () => {
           placeholder="Email"
           keyboardType="email-address"
           onChangeText={(text) => setEmail(text)}
+          onFocus={focusEmail}
         />
 
         <TextInput
           placeholder="Password"
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
+          onFocus={focusPassword}
         />
-        <IconEmail source={require("../assets/icon-email.png")} />
-        <IconPassword source={require("../assets/icon-password.png")} />
+        <IconEmail source={iconEmail} />
+        <IconPassword source={iconPasswrod} />
 
         <TouchableOpacity onPress={loginHandler}>
           <Button>
