@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
+import Loading from "./ui/Loading";
 
 const ModalLogin = () => {
   const [email, setEmail] = useState("");
@@ -18,8 +19,16 @@ const ModalLogin = () => {
     require("../assets/icon-password.png")
   );
   const [isSuccessful, setIsSuccessful] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const loginHandler = () => {};
+  const loginHandler = () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSuccessful(true);
+    }, 1000);
+  };
 
   const focusEmail = () => {
     setIconEmail(require("../assets/icon-email-animated.gif"));
@@ -72,6 +81,7 @@ const ModalLogin = () => {
       </Modal>
 
       <Success isActive={isSuccessful} />
+      <Loading isActive={isLoading} />
     </Container>
   );
 };

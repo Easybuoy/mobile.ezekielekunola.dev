@@ -5,7 +5,7 @@ import { Animated, Dimensions } from "react-native";
 
 const screenHeight = Dimensions.get("window").height;
 
-const Success = ({ isActive }) => {
+const Loading = ({ isActive }) => {
   const [animation, setAnimation] = useState();
   const [top] = useState(new Animated.Value(0));
   const [opacity] = useState(new Animated.Value(0));
@@ -48,9 +48,10 @@ const Success = ({ isActive }) => {
   return (
     <AnimatedContainer style={{ top, opacity }}>
       <LottieView
-        source={require("../../assets/lottie-checked-done.json")}
+        source={require("../../assets/lottie-loading-fluid.json")}
         autoPlay={false}
-        loop={false}
+        loop={true}
+        
         ref={(animation) => {
           setAnimation(animation);
         }}
@@ -59,7 +60,7 @@ const Success = ({ isActive }) => {
   );
 };
 
-export default Success;
+export default Loading;
 
 const Container = styled.View`
   width: 100%;
