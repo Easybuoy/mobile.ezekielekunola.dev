@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { PanResponder, Animated } from "react-native";
+import { useSelector } from "react-redux";
 
 import Project from "../components/Project";
 import { projectsData } from "../data";
@@ -23,14 +24,19 @@ const Projects = ({ navigation }) => {
     new Animated.Value(-50)
   );
   const [index, setIndex] = useState(0);
+  const action = useSelector((state) => state.action.action);
 
   useEffect(() => {
     const panResponderHandler = PanResponder.create({
       onMoveShouldSetPanResponder: (event, gestureState) => {
         if (gestureState.dx === 0 && gestureState.dy === 0) {
           return false;
+        } else {
+          if (action === "openCard") {
+            return false;
+          }
+          return true;
         }
-        return true;
       },
       onPanResponderGrant: () => {
         Animated.spring(scale, {
@@ -109,7 +115,7 @@ const Projects = ({ navigation }) => {
     });
 
     setPanResponderHandler(panResponderHandler);
-  }, [index]);
+  }, [index, action]);
 
   return (
     <Container>
