@@ -6,6 +6,7 @@ import {
   Keyboard,
 } from "react-native";
 import { BlurView } from "expo-blur";
+import Success from "./ui/Success";
 
 const ModalLogin = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ const ModalLogin = () => {
   const [iconPasswrod, setIconPasswrod] = useState(
     require("../assets/icon-password.png")
   );
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const loginHandler = () => {};
 
@@ -68,6 +70,8 @@ const ModalLogin = () => {
           </Button>
         </TouchableOpacity>
       </Modal>
+
+      <Success isActive={isSuccessful} />
     </Container>
   );
 };
