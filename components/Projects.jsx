@@ -1,24 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Animated } from "react-native";
+import { Animated, TouchableWithoutFeedback, Dimensions } from "react-native";
+
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const Projects = ({ title, image, author, text }) => {
   const [cardWidth] = useState(new Animated.Value(315));
   const [cardHeight] = useState(new Animated.Value(460));
 
   const openCard = () => {
+    Animated.spring(cardWidth, {
+      toValue: screenWidth,
+      useNativeDriver: false,
+    }).start();
+    Animated.spring(cardHeight, {
+      toValue: screenHeight,
+      useNativeDriver: false,
+    }).start();
+  };
 
-  }
-  
   return (
-    <AnimatedContainer style={{ width: cardWidth, height: cardHeight }}>
-      <Cover>
-        <Image source={image} />
-        <Title>{title}</Title>
-        <Author>by {author}</Author>
-      </Cover>
-      <Text>{text}</Text>
-    </AnimatedContainer>
+    <TouchableWithoutFeedback onPress={openCard}>
+      <AnimatedContainer style={{ width: cardWidth, height: cardHeight }}>
+        <Cover>
+          <Image source={image} />
+          <Title>{title}</Title>
+          <Author>by {author}</Author>
+        </Cover>
+        <Text>{text}</Text>
+      </AnimatedContainer>
+    </TouchableWithoutFeedback>
   );
 };
 
