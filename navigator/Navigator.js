@@ -70,7 +70,7 @@ const inActiveColor = "#b8bece";
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator initialRouteName="Projects">
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen
         name="Home"
         component={HomeStack}
