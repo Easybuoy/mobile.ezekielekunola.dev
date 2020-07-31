@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSelector, useDispatch } from "react-redux";
+import { LinearGradient } from "expo-linear-gradient";
+import { useDispatch } from "react-redux";
 
 import {
   openCard as openReduxCard,
@@ -97,6 +98,16 @@ const Project = ({ title, image, author, text, canOpen }) => {
         </Cover>
         <AnimatedText style={{ height: textHeight }}>{text}</AnimatedText>
 
+        <AnimatedLinearGradient
+          colors={["rgba(255,255,255,0)", "rgba(255,255,255,1)"]}
+          style={{
+            position: "absolute",
+            top: 330,
+            width: "100%",
+            height: textHeight,
+          }}
+        />
+
         <TouchableOpacity
           style={{ position: "absolute", right: 20, top: 20 }}
           onPress={closeCard}
@@ -175,3 +186,5 @@ const CloseView = styled.View`
 `;
 
 const AnimatedCloseView = Animated.createAnimatedComponent(CloseView);
+
+const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
