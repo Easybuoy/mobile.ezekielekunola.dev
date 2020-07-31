@@ -10,7 +10,10 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
-import { openCard as openReduxCard, closeCard as closeReduxCard } from "../store/actions/action";
+import {
+  openCard as openReduxCard,
+  closeCard as closeReduxCard,
+} from "../store/actions/action";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -21,6 +24,7 @@ const Project = ({ title, image, author, text, canOpen }) => {
   const [cardHeight] = useState(new Animated.Value(460));
   const [titleTop] = useState(new Animated.Value(20));
   const [opacity] = useState(new Animated.Value(0));
+  const [textHeight] = useState(new Animated.Value(100));
   const dispatch = useDispatch();
 
   const openCard = () => {
@@ -42,6 +46,11 @@ const Project = ({ title, image, author, text, canOpen }) => {
 
     Animated.timing(opacity, {
       toValue: 1,
+      useNativeDriver: false,
+    }).start();
+
+    Animated.spring(textHeight, {
+      toValue: 1000,
       useNativeDriver: false,
     }).start();
 
@@ -69,6 +78,11 @@ const Project = ({ title, image, author, text, canOpen }) => {
       useNativeDriver: false,
     }).start();
 
+    Animated.spring(textHeight, {
+      toValue: 100,
+      useNativeDriver: false,
+    }).start();
+
     StatusBar.setHidden(false);
     dispatch(closeReduxCard());
   };
@@ -81,7 +95,7 @@ const Project = ({ title, image, author, text, canOpen }) => {
           <AnimatedTitle style={{ top: titleTop }}>{title}</AnimatedTitle>
           <Author>by {author}</Author>
         </Cover>
-        <Text>{text}</Text>
+        <AnimatedText style={{ height: textHeight }}>{text}</AnimatedText>
 
         <TouchableOpacity
           style={{ position: "absolute", right: 20, top: 20 }}
@@ -148,6 +162,8 @@ const Text = styled.Text`
   line-height: 24px;
   color: #3c4560;
 `;
+
+const AnimatedText = Animated.createAnimatedComponent(Text);
 
 const CloseView = styled.View`
   width: 32px;

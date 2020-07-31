@@ -24,6 +24,7 @@ const Projects = ({ navigation }) => {
     new Animated.Value(-50)
   );
   const [index, setIndex] = useState(0);
+  const [opacity, setOpacity] = useState(new Animated.Value(0));
   const action = useSelector((state) => state.action.action);
 
   useEffect(() => {
@@ -57,6 +58,11 @@ const Projects = ({ navigation }) => {
           toValue: 44,
           useNativeDriver: false,
         }).start();
+
+        Animated.timing(opacity, {
+          toValue: 1,
+          useNativeDriver: false,
+        }).start();
       },
 
       onPanResponderMove: Animated.event(
@@ -71,6 +77,11 @@ const Projects = ({ navigation }) => {
       ),
       onPanResponderRelease: () => {
         const positionY = pan.y.__getValue();
+
+        Animated.timing(opacity, {
+          toValue: 0,
+          useNativeDriver: false,
+        }).start();
 
         if (positionY > 200) {
           Animated.timing(pan, {
@@ -119,6 +130,8 @@ const Projects = ({ navigation }) => {
 
   return (
     <Container>
+      <AnimatedMask style={{ opacity }} />
+
       <Animated.View
         style={{
           transform: [
@@ -206,3 +219,15 @@ const Container = styled.View`
   align-items: center;
   background: #f0f3f5;
 `;
+
+const Mask = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: -3;
+`;
+
+const AnimatedMask = Animated.createAnimatedComponent(Mask);

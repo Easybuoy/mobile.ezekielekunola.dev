@@ -136,6 +136,7 @@ export const projectsData = [
     title: "Price Tag",
     image: require("../assets/background7.jpg"),
     author: "Liu Yi",
-    text: "I designed 3rd one",
+    text:
+      "I designed 3rd oneI designed 3rd oneI designed 3rd oneI desig I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one ned 3rd oneI designed 3rd oneI designed 3rd one I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one",
   },
 ];
