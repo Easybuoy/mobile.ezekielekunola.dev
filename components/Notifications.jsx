@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { closeNotif } from "../store/actions/action";
 import { notificationsData } from "../data";
+import Colors from "../constants/Colors";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -88,7 +89,7 @@ const Notifications = () => {
         }}
       >
         <CloseButton style={{ elevation: 20 }}>
-          <Ionicons name="ios-close" size={44} color="#546bfb" />
+          <Ionicons name="ios-close" size={44} color={Colors.PRIMARY} />
         </CloseButton>
       </TouchableOpacity>
 
@@ -184,7 +185,7 @@ const Logo = styled.Image`
 `;
 
 const DateContainer = styled.View`
-  background: #4775f2;
+  background: ${Colors.GREY};
   border-radius: 10px;
   flex-direction: row;
   align-items: center;
@@ -196,7 +197,7 @@ const DateContainer = styled.View`
 `;
 
 const Date = styled.Text`
-  color: white;
+  color: ${Colors.WHITE};
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;

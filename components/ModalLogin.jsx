@@ -10,12 +10,13 @@ import {
   AsyncStorage,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-
 import { BlurView } from "expo-blur";
+
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
 import { closeLogin, updateName } from "../store/actions/action";
 import firebase from "../config/Firebase";
+import Colors from "../constants/Colors";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -229,13 +230,13 @@ const TextInput = styled.TextInput`
 `;
 
 const Button = styled.View`
-  background: #5263ff;
+  background: ${Colors.PRIMARY};
   width: 295px;
   height: 50px;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0 10px 20px #c2cbff;
+  box-shadow: 0 10px 20px ${Colors.PRIMARY};
   margin-top: 20px;
 `;
 
