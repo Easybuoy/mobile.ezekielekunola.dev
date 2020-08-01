@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Section from "../screens/Section";
 import Projects from "../screens/Projects";
 import Courses from "../screens/Courses";
+import Colors from "../constants/Colors";
 
 const Stack = createStackNavigator();
 
@@ -53,12 +54,12 @@ const ProjectsStack = () => {
 
 const Tab = createBottomTabNavigator();
 
-const activeColor = "#4775f2";
-const inActiveColor = "#b8bece";
-
 const TabNavigator = () => {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBarOptions={{ activeTintColor: Colors.PRIMARY }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeStack}
@@ -75,11 +76,12 @@ const TabNavigator = () => {
           return {
             tabBarLabel: "Home",
             tabBarVisible,
+
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 name="ios-home"
                 size={26}
-                color={focused ? activeColor : inActiveColor}
+                color={focused ? Colors.PRIMARY : Colors.GREY}
               />
             ),
           };
@@ -94,7 +96,7 @@ const TabNavigator = () => {
             <Ionicons
               name="ios-albums"
               size={26}
-              color={focused ? activeColor : inActiveColor}
+              color={focused ? Colors.PRIMARY : Colors.GREY}
             />
           ),
         }}
@@ -108,7 +110,7 @@ const TabNavigator = () => {
             <Ionicons
               name="ios-folder"
               size={26}
-              color={focused ? activeColor : inActiveColor}
+              color={focused ? Colors.PRIMARY : Colors.GREY}
             />
           ),
         }}
