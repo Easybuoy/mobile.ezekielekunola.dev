@@ -15,7 +15,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "io.ezekielekunola"
+    },
+    "android": {
+      "package": "io.ezekielekunola"
     },
     "web": {
       "favicon": "./assets/favicon.png"

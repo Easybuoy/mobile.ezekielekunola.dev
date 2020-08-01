@@ -21,6 +21,7 @@ import { logoData, cardsData, coursesData } from "../data";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
 import ModalLogin from "../components/ModalLogin";
+import NotificationButton from "../components/NotificationButton";
 
 const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
@@ -91,9 +92,12 @@ const Home = ({ navigation }) => {
               <Title>Welcome Back,</Title>
               <Name>{name}</Name>
 
-              <NotificationIcon
+              <TouchableOpacity
+                onPress={() => openNotif()}
                 style={{ position: "absolute", right: 20, top: 5 }}
-              />
+              >
+                <NotificationButton />
+              </TouchableOpacity>
             </TitleBar>
 
             <ScrollView
