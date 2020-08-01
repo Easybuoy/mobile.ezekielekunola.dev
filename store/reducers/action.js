@@ -12,6 +12,7 @@ import {
 
 const INITIALSTATE = {
   action: "",
+  avatar: require("../../assets/avatar-default.jpg"),
   name: "Stranger",
 };
 
@@ -51,6 +52,7 @@ export default (state = INITIALSTATE, action) => {
       return {
         ...state,
         name: action.payload.name,
+        avatar: require("../../assets/avatar.jpg"),
       };
     case OPEN_NOTIFICATION:
       return {

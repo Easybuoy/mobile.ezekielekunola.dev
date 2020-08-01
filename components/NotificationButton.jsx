@@ -37,4 +37,5 @@ const Text = styled.Text`
   color: white;
   font-size: 12px;
   font-weight: 700;
+  text-align: center;
 `;

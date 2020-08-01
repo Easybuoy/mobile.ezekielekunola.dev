@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const menuStateAction = useSelector((state) => state.action.action);
   const name = useSelector((state) => state.action.name);
+  const avatar = useSelector((state) => state.action.avatar);
   const { loading, error, data } = useQuery(CARDSQUERY);
 
   const toggleMenu = () => {
@@ -88,7 +89,7 @@ const Home = ({ navigation }) => {
                 onPress={openMenuHandler}
                 style={{ position: "absolute", top: 0, left: 10 }}
               >
-                <Avatar source={require("../assets/avatar.jpg")} />
+                <Avatar source={avatar} />
               </TouchableOpacity>
               <Title>Welcome Back,</Title>
               <Name>{name}</Name>

@@ -27,18 +27,6 @@ const HomeStack = () => {
   );
 };
 
-const SectionStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Section"
-        component={Section}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
-  );
-};
-
 const CoursesStack = () => {
   return (
     <Stack.Navigator>
