@@ -7,6 +7,7 @@ import {
   Alert,
   Animated,
   Dimensions,
+  AsyncStorage,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -91,6 +92,7 @@ const ModalLogin = () => {
           setIsSuccessful(true);
 
           Alert.alert("Congrats", "You've logged in suceessfully");
+          storeName(res.user.email);
 
           setTimeout(() => {
             dispatch(closeLogin());
@@ -98,6 +100,22 @@ const ModalLogin = () => {
           }, 1000);
         }
       });
+  };
+
+  const storeName = async (name) => {
+    try {
+      await AsyncStorage.setItem("name", name);
+    } catch (error) {}
+  };
+
+  const retreiveName = async () => {
+    try {
+      const name = await AsyncStorage.getItem("name");
+      if (name !== null) {
+        console.log(name)
+      }
+      // return name;
+    } catch (error) {}
   };
 
   const focusEmail = () => {
