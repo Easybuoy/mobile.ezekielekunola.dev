@@ -9,6 +9,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
+import Colors from "../constants/Colors";
 import { menuData } from "../data";
 import { closeMenu, updateName } from "../store/actions/action";
 import MenuItem from "./MenuItem";
@@ -70,7 +71,7 @@ const Menu = () => {
         }}
       >
         <CloseView>
-          <Ionicons name="ios-close" size={44} color="#546bfb" />
+          <Ionicons name="ios-close" size={44} color={Colors.PRIMARY} />
         </CloseView>
       </TouchableOpacity>
       <Content>
