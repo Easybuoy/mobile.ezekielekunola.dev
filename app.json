@@ -1,7 +1,10 @@
 {
   "expo": {
-    "name": "react-native-design-code",
-    "slug": "react-native-design-code",
+    "name": "ezekiel-ekunola",
+    "slug": "ezekiel-ekunola",
+    "description": "Mobile Portfolio for Ezekiel Ekunola",
+    "privacy": "public",
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
