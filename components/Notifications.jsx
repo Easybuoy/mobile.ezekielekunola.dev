@@ -31,7 +31,6 @@ const Notifications = () => {
     toggleNotification();
   }, [action, toggleNotification]);
 
-  console.log(action, "a");
   const toggleNotification = () => {
     if (action === "openNotif") {
       Animated.parallel([
@@ -168,7 +167,7 @@ const Item = styled.View`
   padding: 20px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 50px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 50px 10px rgba(0, 0, 0, 0.09);
   margin-top: 20px;
 `;
 
