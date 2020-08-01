@@ -14,6 +14,7 @@ import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
 import { closeLogin } from "../store/actions/action";
+import firebase from '../'
 
 const screenHeight = Dimensions.get("window").height;
 
