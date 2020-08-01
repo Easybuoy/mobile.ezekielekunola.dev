@@ -180,7 +180,7 @@ export const notificationsData = [
   },
   {
     logo: require("../assets/logo-react.png"),
-    title: "Invision Studio",
+    title: "React-native",
     text: "Authentication flow in React-native using Redux",
     date: "27 Nov",
   },
