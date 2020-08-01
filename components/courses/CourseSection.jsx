@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
+import { projectsData } from "../../data";
 
 const CourseSection = ({ image, progress, title }) => {
   return (
@@ -21,7 +22,7 @@ const CourseSection = ({ image, progress, title }) => {
             bottom: 0,
             height: 4,
             borderRadius: 2,
-            width: progress * 100 + "% ",
+            width: progress * 100 + "%",
           }}
         />
 
@@ -34,6 +35,13 @@ const CourseSection = ({ image, progress, title }) => {
 
 export default CourseSection;
 
+const Container = styled.View`
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+`;
+
 const Mask = styled.View`
   height: 100%;
   border-radius: 10px;
@@ -44,5 +52,22 @@ const Mask = styled.View`
 `;
 
 const Image = styled.Image`
-    width: 100%
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
+const Text = styled.Text`
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin: 16px;
+`;
+
+const Border = styled.View`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 `;
