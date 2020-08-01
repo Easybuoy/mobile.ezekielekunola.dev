@@ -161,10 +161,12 @@ const Author = styled.Text`
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #4775f2;
+  /* color: rgba(255, 255, 255, 0.8); */
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
+  width: 250px;
 `;
 
 const Text = styled.Text`

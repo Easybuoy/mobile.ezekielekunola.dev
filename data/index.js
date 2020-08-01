@@ -128,23 +128,46 @@ export const projectsData = [
       "Dotpay is a web application that allows you create business account, generate payment links, and receive payments from customers using those generated links.",
   },
   {
-    title: "Price Tag",
-    image: require("../assets/background6.jpg"),
-    author: "Liu Yi",
-    text: "I designed 2nd one",
-  },
-  {
-    title: "Price Tag",
-    image: require("../assets/background7.jpg"),
-    author: "Liu Yi",
+    title: "Trackdrills",
+    image: require("../assets/projects/trackdrills.png"),
+    author: "Trackdrills Team",
     text:
-      "I designed 3rd oneI designed 3rd oneI designed 3rd oneI desig I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one ned 3rd oneI designed 3rd oneI designed 3rd one I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one",
+      "Trackdrills is an application that gives you access to over 500 workouts and exercises to choose from to suit your fitness goals. It is a health-focused app that also gives you the ability to create your own customized workout plans and track your progress.",
   },
   {
-    title: "Price Tag",
-    image: require("../assets/background7.jpg"),
-    author: "Liu Yi",
-    text: "I designed 4th one",
+    title: "Use My Tech Stuff",
+    image: require("../assets/projects/use-my-tech-stuff.png"),
+    author: "Ezekiel Ekunola",
+    text:
+      "Use My Tech Stuff aims to provide a safe, guaranteed, and efficient way to effortlessly share professional tech equipment.",
+  },
+  {
+    title: "Anonymous Team Feedback",
+    image: require("../assets/projects/atf.png"),
+    author: "Anonymous Team Feedback Team",
+    text:
+      "A web application that helps you get honest feedback from your co-workers.",
+  },
+  {
+    title: "Store Manager",
+    image: require("../assets/projects/store-manager.png"),
+    author: "Ezekiel Ekunola",
+    text:
+      "A web application that helps you get honest feedback from your co-workers.",
+  },
+  {
+    title: "School In The Cloud",
+    image: require("../assets/projects/school-in-the-cloud.png"),
+    author: "Ezekiel Ekunola",
+    text:
+      "School in the Cloud is a platform that trains senior volunteers to teach students in a group or individual setting. This helps kids in communities with high student to teacher ratios. It also provides retired volunteers a sense of purpose and meaning in their day to day life when they find themselves with more free time. The platform also connects volunteers with the students.",
+  },
+  {
+    title: "Marvel Comics",
+    image: require("../assets/projects/marvel-comics.png"),
+    author: "Ezekiel Ekunola",
+    text:
+      "Progressive Web Application that displays information about Marvel Comics and Characters.",
   },
 ];
 
