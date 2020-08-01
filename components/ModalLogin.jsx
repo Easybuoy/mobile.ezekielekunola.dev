@@ -144,8 +144,8 @@ const ModalLogin = () => {
         />
       </TouchableWithoutFeedback>
       <AnimatedModal style={{ transform: [{ scale }, { translateY }] }}>
-        <Logo source={require("../assets/logo-dc.png")} />
-        <Text>Start Learning</Text>
+        <Logo source={require("../assets/icon.png")} />
+        <Text>Welcome Back</Text>
 
         <TextInput
           placeholder="Email"
@@ -203,7 +203,7 @@ const Modal = styled.View`
 const AnimatedModal = Animated.createAnimatedComponent(Modal);
 
 const Logo = styled.Image`
-  width: 44px;
+  width: 120px;
   height: 44px;
   margin-top: 50px;
 `;
