@@ -87,13 +87,13 @@ const ModalLogin = () => {
         Alert.alert("Error", error.message);
       })
       .then((res) => {
-        console.log(res);
         setIsLoading(false);
         if (res) {
           setIsSuccessful(true);
 
           Alert.alert("Congrats", "You've logged in suceessfully");
-          storeName(res.user.email);
+          storeName("Ezekiel");
+          dispatch(updateName("Ezekiel"));
 
           setTimeout(() => {
             dispatch(closeLogin());
@@ -113,10 +113,8 @@ const ModalLogin = () => {
     try {
       const name = await AsyncStorage.getItem("name");
       if (name !== null) {
-        console.log(name);
         dispatch(updateName(name));
       }
-      // return name;
     } catch (error) {}
   };
 
