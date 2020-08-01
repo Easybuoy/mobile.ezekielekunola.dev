@@ -52,10 +52,10 @@ export const closeLogin = () => {
   };
 };
 
-export const updateName = (name) => {
+export const updateName = (name, avatar) => {
   return {
     type: UPDATE_NAME,
-    payload: { name },
+    payload: { name, avatar },
   };
 };
 

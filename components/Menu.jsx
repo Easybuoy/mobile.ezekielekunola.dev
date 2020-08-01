@@ -46,8 +46,7 @@ const Menu = () => {
 
   const handleMenuAction = (index) => {
     if (index === 3) {
-      console.log("e");
-      dispatch(updateName("Stranger"));
+      dispatch(updateName("Stranger", require("../assets/avatar-default.jpg")));
       dispatch(closeMenu());
       AsyncStorage.clear();
     }

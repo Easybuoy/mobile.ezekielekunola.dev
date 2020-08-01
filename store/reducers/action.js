@@ -52,7 +52,7 @@ export default (state = INITIALSTATE, action) => {
       return {
         ...state,
         name: action.payload.name,
-        avatar: require("../../assets/avatar.jpg"),
+        avatar: action.payload.avatar,
       };
     case OPEN_NOTIFICATION:
       return {

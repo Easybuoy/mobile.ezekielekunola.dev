@@ -93,7 +93,7 @@ const ModalLogin = () => {
 
           Alert.alert("Congrats", "You've logged in suceessfully");
           storeName("Ezekiel");
-          dispatch(updateName("Ezekiel"));
+          dispatch(updateName("Ezekiel", require("../assets/avatar.jpg")));
 
           setTimeout(() => {
             dispatch(closeLogin());
@@ -113,7 +113,7 @@ const ModalLogin = () => {
     try {
       const name = await AsyncStorage.getItem("name");
       if (name !== null) {
-        dispatch(updateName(name));
+        dispatch(updateName(name, require("../assets/avatar.jpg")));
       }
     } catch (error) {}
   };
