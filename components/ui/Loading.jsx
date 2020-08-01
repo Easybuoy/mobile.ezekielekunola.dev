@@ -51,7 +51,6 @@ const Loading = ({ isActive }) => {
         source={require("../../assets/lottie-loading-fluid.json")}
         autoPlay={false}
         loop={true}
-        
         ref={(animation) => {
           setAnimation(animation);
         }}
