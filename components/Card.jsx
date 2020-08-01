@@ -11,7 +11,7 @@ const Card = ({ title, image, logo, caption, subtitle }) => {
       <Content>
         <Logo source={logo} />
         <Wrapper>
-          <Caption>{caption}</Caption>
+          {/* <Caption>{caption}</Caption> */}
           <Subtitle>{subtitle}</Subtitle>
         </Wrapper>
       </Content>
@@ -53,7 +53,7 @@ const Title = styled.Text`
   font-weight: bold;
   margin-top: 20px;
   margin-left: 20px;
-  width: 170px;
+  width: 300px;
 `;
 
 const Content = styled.View`

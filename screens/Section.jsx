@@ -114,7 +114,7 @@ const Title = styled.Text`
   font-size: 24px;
   color: white;
   font-weight: bold;
-  width: 170px;
+  width: 300px;
   position: absolute;
   top: 78px;
   left: 20px;
