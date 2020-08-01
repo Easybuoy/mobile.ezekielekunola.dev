@@ -68,7 +68,11 @@ const Home = ({ navigation }) => {
   }, [menuStateAction]);
 
   const openMenuHandler = () => {
-    dispatch(openLogin());
+    if (name === "Stranger") {
+      dispatch(openLogin());
+    } else {
+      dispatch(openMenu());
+    }
   };
 
   return (

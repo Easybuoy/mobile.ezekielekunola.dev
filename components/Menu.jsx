@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Animated, TouchableOpacity, Dimensions } from "react-native";
+import {
+  Animated,
+  TouchableOpacity,
+  Dimensions,
+  AsyncStorage,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import { menuData } from "../data";
-import { closeMenu } from "../store/actions/action";
+import { closeMenu, updateName } from "../store/actions/action";
 import MenuItem from "./MenuItem";
 
 const screenHeight = Dimensions.get("window").height;
@@ -39,6 +44,15 @@ const Menu = () => {
     }
   };
 
+  const handleMenuAction = (index) => {
+    if (index === 3) {
+      console.log("e");
+      dispatch(updateName("Stranger"));
+      dispatch(closeMenu());
+      AsyncStorage.clear();
+    }
+  };
+
   return (
     <AnimatedContainer style={{ top }}>
       <Cover>
@@ -61,13 +75,15 @@ const Menu = () => {
         </CloseView>
       </TouchableOpacity>
       <Content>
-        {menuData.map((menu) => (
-          <MenuItem
+        {menuData.map((menu, i) => (
+          <TouchableOpacity
             key={menu.title}
-            icon={menu.icon}
-            title={menu.title}
-            text={menu.text}
-          />
+            onPress={() => {
+              handleMenuAction(i);
+            }}
+          >
+            <MenuItem icon={menu.icon} title={menu.title} text={menu.text} />
+          </TouchableOpacity>
         ))}
       </Content>
     </AnimatedContainer>
