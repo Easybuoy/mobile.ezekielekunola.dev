@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { TouchableOpacity, StatusBar, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { WebView } from "react-native-webview";
 import Markdown from "react-native-showdown";
+
+import Colors from "../constants/Colors";
+
 const Section = ({ route, navigation }) => {
   const { section } = route.params;
 
@@ -36,7 +38,7 @@ const Section = ({ route, navigation }) => {
             <Ionicons
               name="ios-close"
               size={36}
-              color="#4475f2"
+              color={Colors.PRIMARY}
               style={{ marginTop: -2 }}
             />
           </CloseView>

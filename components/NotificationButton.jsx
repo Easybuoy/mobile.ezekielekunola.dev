@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { NotificationIcon } from "./Icons";
+import Colors from "../constants/Colors";
 
 const NotificationButton = () => {
   return (
@@ -26,7 +27,7 @@ const Container = styled.View`
 const Bubble = styled.View`
   width: 16px;
   height: 16px;
-  background: #3c4560;
+  background: ${Colors.GREY};
   position: absolute;
   top: 0;
   right: 5px;
@@ -34,7 +35,7 @@ const Bubble = styled.View`
 `;
 
 const Text = styled.Text`
-  color: white;
+  color: ${Colors.SECONDARY};
   font-size: 12px;
   font-weight: 700;
   text-align: center;

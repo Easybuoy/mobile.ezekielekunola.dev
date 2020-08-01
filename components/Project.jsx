@@ -15,6 +15,7 @@ import {
   openCard as openReduxCard,
   closeCard as closeReduxCard,
 } from "../store/actions/action";
+import Colors from "../constants/Colors";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -113,7 +114,7 @@ const Project = ({ title, image, author, text, canOpen }) => {
           onPress={closeCard}
         >
           <AnimatedCloseView style={{ opacity }}>
-            <Ionicons name="ios-close" size={32} color="#546bfb" />
+            <Ionicons name="ios-close" size={32} color={Colors.PRIMARY} />
           </AnimatedCloseView>
         </TouchableOpacity>
       </AnimatedContainer>
@@ -151,7 +152,8 @@ const Title = styled.Text`
   left: 20px;
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  /* color: white; */
+  color: ${Colors.PRIMARY};
   width: 300px;
 `;
 
@@ -161,7 +163,7 @@ const Author = styled.Text`
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: #4775f2;
+  color: ${Colors.PRIMARY};
   /* color: rgba(255, 255, 255, 0.8); */
   font-size: 15px;
   font-weight: 600;
