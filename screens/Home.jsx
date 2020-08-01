@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-apollo";
 
 import { CARDSQUERY } from "../graphql/queries";
-import { openMenu } from "../store/actions/action";
+import { openMenu, openLogin } from "../store/actions/action";
 import Card from "../components/Card";
 import { NotificationIcon } from "../components/Icons";
 import Logo from "../components/Logo";
@@ -67,7 +67,7 @@ const Home = ({ navigation }) => {
   }, [menuStateAction]);
 
   const openMenuHandler = () => {
-    dispatch(openMenu());
+    dispatch(openLogin());
   };
 
   return (

@@ -1,4 +1,11 @@
-import { CLOSE_MENU, OPEN_MENU, OPEN_CARD, CLOSE_CARD } from "../types";
+import {
+  CLOSE_MENU,
+  OPEN_MENU,
+  OPEN_CARD,
+  CLOSE_CARD,
+  OPEN_LOGIN,
+  CLOSE_LOGIN,
+} from "../types";
 
 export const closeMenu = () => {
   return {
@@ -24,6 +31,20 @@ export const openCard = () => {
 export const closeCard = () => {
   return {
     type: CLOSE_CARD,
+    payload: {},
+  };
+};
+
+export const openLogin = () => {
+  return {
+    type: OPEN_LOGIN,
+    payload: {},
+  };
+};
+
+export const closeLogin = () => {
+  return {
+    type: CLOSE_LOGIN,
     payload: {},
   };
 };

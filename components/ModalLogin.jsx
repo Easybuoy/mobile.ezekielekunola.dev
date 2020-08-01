@@ -8,12 +8,12 @@ import {
   Animated,
   Dimensions,
 } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
-import { } from '../store/actions/action'
+import { closeLogin } from "../store/actions/action";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -29,7 +29,50 @@ const ModalLogin = () => {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [top] = useState(new Animated.Value(screenHeight));
+  const [scale] = useState(new Animated.Value(1.3));
+  const [translateY] = useState(new Animated.Value(0));
   const dispatch = useDispatch();
+  const action = useSelector((state) => state.action.action);
+
+  useEffect(() => {
+    if (action === "openLogin") {
+      Animated.timing(top, {
+        toValue: 0,
+        useNativeDriver: false,
+        duration: 0,
+      }).start();
+
+      Animated.spring(scale, {
+        toValue: 1,
+        useNativeDriver: false,
+      }).start();
+      Animated.timing(translateY, {
+        toValue: 0,
+        useNativeDriver: false,
+      }).start();
+    }
+
+    if (action === "closeLogin") {
+      setTimeout(() => {
+        Animated.timing(top, {
+          toValue: screenHeight,
+          useNativeDriver: false,
+          duration: 0,
+        }).start();
+
+        Animated.spring(scale, {
+          toValue: 1.3,
+          useNativeDriver: false,
+        }).start();
+      }, 500);
+
+      Animated.timing(translateY, {
+        toValue: 1000,
+        duration: 500,
+        useNativeDriver: false,
+      }).start();
+    }
+  }, [action]);
 
   const loginHandler = () => {
     setIsLoading(true);
@@ -39,6 +82,11 @@ const ModalLogin = () => {
       setIsSuccessful(true);
 
       Alert.alert("Congrats", "You've logged in suceessfully");
+
+      setTimeout(() => {
+        dispatch(closeLogin());
+        setIsSuccessful(false);
+      }, 1000);
     }, 1000);
   };
 
@@ -54,6 +102,7 @@ const ModalLogin = () => {
 
   const tapBackground = () => {
     Keyboard.dismiss();
+    dispatch(closeLogin());
   };
 
   return (
@@ -65,7 +114,7 @@ const ModalLogin = () => {
           style={{ position: "absolute", width: "100%", height: "100%" }}
         />
       </TouchableWithoutFeedback>
-      <Modal>
+      <AnimatedModal style={{ transform: [{ scale }, { translateY }] }}>
         <Logo source={require("../assets/logo-dc.png")} />
         <Text>Start Learning</Text>
 
@@ -90,7 +139,7 @@ const ModalLogin = () => {
             <ButtonText>Login</ButtonText>
           </Button>
         </TouchableOpacity>
-      </Modal>
+      </AnimatedModal>
 
       <Success isActive={isSuccessful} />
       <Loading isActive={isLoading} />
@@ -121,6 +170,8 @@ const Modal = styled.View`
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   align-items: center;
 `;
+
+const AnimatedModal = Animated.createAnimatedComponent(Modal);
 
 const Logo = styled.Image`
   width: 44px;
