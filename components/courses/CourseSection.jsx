@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
 import { projectsData } from "../../data";
 
-const CourseSection = ({ image, progress, title }) => {
+const CourseSection = ({ image, progress, title, skillImage }) => {
   return (
     <Container>
       <Mask>
@@ -27,6 +27,8 @@ const CourseSection = ({ image, progress, title }) => {
         />
 
         <Border />
+        <Logo source={skillImage} />
+
         <Text>{title}</Text>
       </Mask>
     </Container>
@@ -70,4 +72,11 @@ const Border = styled.View`
   height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+`;
+
+const Logo = styled.Image`
+  width: 48px;
+  height: 48px;
+  margin-top: 50px;
+  align-self: center;
 `;

@@ -24,6 +24,7 @@ const Courses = ({ navigation }) => {
             }}
           />
           <Caption>Skills</Caption>
+
           <Sections>
             <SectionScrollView
               horizontal={true}
@@ -35,6 +36,7 @@ const Courses = ({ navigation }) => {
                   title={section.title}
                   image={section.image}
                   progress={section.progress}
+                  skillImage={section.skillImage}
                 />
               ))}
             </SectionScrollView>

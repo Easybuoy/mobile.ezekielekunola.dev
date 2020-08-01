@@ -188,28 +188,33 @@ export const notificationsData = [
 
 export const sectionsData = [
   {
-    title: "React Native for Designers",
+    title: "React",
     progress: 0.2,
     image: require("../assets/background1.jpg"),
+    skillImage: require("../assets/logo-react.png"),
   },
   {
-    title: "Styled Components",
+    title: "React Native",
     progress: 0.3,
     image: require("../assets/background2.jpg"),
+    skillImage: require("../assets/logo-react.png"),
   },
   {
-    title: "Assets, Icons and SVG",
+    title: "Vue",
     progress: 0.9,
     image: require("../assets/background3.jpg"),
+    skillImage: require("../assets/logo-vue.png"),
   },
   {
     title: "Props and Data",
     progress: 0.5,
     image: require("../assets/background4.jpg"),
+    skillImage: require("../assets/logo-react.png"),
   },
   {
     title: "States and Layout Animation",
     progress: 0.1,
     image: require("../assets/background6.jpg"),
+    skillImage: require("../assets/logo-react.png"),
   },
 ];
