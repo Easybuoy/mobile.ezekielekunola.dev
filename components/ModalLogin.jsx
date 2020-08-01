@@ -4,10 +4,18 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
+  Animated,
+  Dimensions,
 } from "react-native";
+import { useDispatch } from "react-redux";
+
 import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
+import { } from '../store/actions/action'
+
+const screenHeight = Dimensions.get("window").height;
 
 const ModalLogin = () => {
   const [email, setEmail] = useState("");
@@ -20,6 +28,8 @@ const ModalLogin = () => {
   );
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [top] = useState(new Animated.Value(screenHeight));
+  const dispatch = useDispatch();
 
   const loginHandler = () => {
     setIsLoading(true);
@@ -27,6 +37,8 @@ const ModalLogin = () => {
     setTimeout(() => {
       setIsLoading(false);
       setIsSuccessful(true);
+
+      Alert.alert("Congrats", "You've logged in suceessfully");
     }, 1000);
   };
 
@@ -45,7 +57,7 @@ const ModalLogin = () => {
   };
 
   return (
-    <Container>
+    <AnimatedContainer style={{ top }}>
       <TouchableWithoutFeedback onPress={tapBackground}>
         <BlurView
           tint="default"
@@ -82,7 +94,7 @@ const ModalLogin = () => {
 
       <Success isActive={isSuccessful} />
       <Loading isActive={isLoading} />
-    </Container>
+    </AnimatedContainer>
   );
 };
 
@@ -98,6 +110,8 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+const AnimatedContainer = Animated.createAnimatedComponent(Container);
 
 const Modal = styled.View`
   width: 335px;

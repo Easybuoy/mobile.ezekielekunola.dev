@@ -1,4 +1,11 @@
-import { CLOSE_MENU, OPEN_MENU, OPEN_CARD, CLOSE_CARD } from "../types";
+import {
+  CLOSE_MENU,
+  OPEN_MENU,
+  OPEN_CARD,
+  CLOSE_CARD,
+  OPEN_LOGIN,
+  CLOSE_LOGIN,
+} from "../types";
 
 const INITIALSTATE = {
   action: "",
@@ -21,6 +28,14 @@ export default (state = INITIALSTATE, action) => {
     case CLOSE_CARD:
       return {
         action: "closeCard",
+      };
+    case OPEN_LOGIN:
+      return {
+        action: "openLogin",
+      };
+    case CLOSE_LOGIN:
+      return {
+        action: "closeLogin",
       };
     default:
       return state;
