@@ -92,7 +92,6 @@ const ModalLogin = () => {
         if (res) {
           setIsSuccessful(true);
 
-          Alert.alert("Congrats", "You've logged in suceessfully");
           storeName("Ezekiel");
           dispatch(updateName("Ezekiel", require("../assets/avatar.jpg")));
 

@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 
+import Colors from "../constants/Colors";
+
 const MenuItem = ({ icon, title, text }) => {
   return (
     <Container>
       <IconView>
-        <Ionicons name={icon} size={24} color="#546bfb" />
+        <Ionicons name={icon} size={24} color={Colors.PRIMARY} />
       </IconView>
 
       <Content>
