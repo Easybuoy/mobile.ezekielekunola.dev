@@ -6,6 +6,8 @@ import {
   OPEN_LOGIN,
   CLOSE_LOGIN,
   UPDATE_NAME,
+  OPEN_NOTIFICATION,
+  CLOSE_NOTIFICATION,
 } from "../types";
 
 export const closeMenu = () => {
@@ -54,5 +56,19 @@ export const updateName = (name) => {
   return {
     type: UPDATE_NAME,
     payload: { name },
+  };
+};
+
+export const openNotif = (name) => {
+  return {
+    type: OPEN_NOTIFICATION,
+    payload: {},
+  };
+};
+
+export const closeNotif = (name) => {
+  return {
+    type: CLOSE_NOTIFICATION,
+    payload: {},
   };
 };

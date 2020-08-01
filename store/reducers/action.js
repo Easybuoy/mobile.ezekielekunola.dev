@@ -6,6 +6,8 @@ import {
   OPEN_LOGIN,
   CLOSE_LOGIN,
   UPDATE_NAME,
+  OPEN_NOTIFICATION,
+  CLOSE_NOTIFICATION,
 } from "../types";
 
 const INITIALSTATE = {
@@ -49,6 +51,16 @@ export default (state = INITIALSTATE, action) => {
       return {
         ...state,
         name: action.payload.name,
+      };
+    case OPEN_NOTIFICATION:
+      return {
+        ...state,
+        action: "openNotif",
+      };
+    case CLOSE_NOTIFICATION:
+      return {
+        ...state,
+        action: "closeNotif",
       };
     default:
       return state;

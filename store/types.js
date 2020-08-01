@@ -5,3 +5,5 @@ export const CLOSE_CARD = "CLOSE_CARD";
 export const OPEN_LOGIN = "OPEN_LOGIN";
 export const CLOSE_LOGIN = "CLOSE_LOGIN";
 export const UPDATE_NAME = "UPDATE_NAME";
+export const OPEN_NOTIFICATION = "OPEN_NOTIFICATION";
+export const CLOSE_NOTIFICATION = "CLOSE_NOTIFICATION";
