@@ -14,7 +14,7 @@ import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
 import { closeLogin } from "../store/actions/action";
-import firebase from '../'
+import firebase from "../config/Firebase";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -78,17 +78,26 @@ const ModalLogin = () => {
   const loginHandler = () => {
     setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsSuccessful(true);
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => {
+        Alert.alert("Error", error.message);
+      })
+      .then((res) => {
+        console.log(res);
+        setIsLoading(false);
+        if (res) {
+          setIsSuccessful(true);
 
-      Alert.alert("Congrats", "You've logged in suceessfully");
+          Alert.alert("Congrats", "You've logged in suceessfully");
 
-      setTimeout(() => {
-        dispatch(closeLogin());
-        setIsSuccessful(false);
-      }, 1000);
-    }, 1000);
+          setTimeout(() => {
+            dispatch(closeLogin());
+            setIsSuccessful(false);
+          }, 1000);
+        }
+      });
   };
 
   const focusEmail = () => {
