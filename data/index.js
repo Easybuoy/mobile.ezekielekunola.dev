@@ -121,10 +121,11 @@ export const menuData = [
 
 export const projectsData = [
   {
-    title: "Price Tag",
-    image: require("../assets/background5.jpg"),
-    author: "Liu Yi",
-    text: "I designed 1st one",
+    title: "Dotpay",
+    image: require("../assets/projects/dotpay.png"),
+    author: "Dotpay Team",
+    text:
+      "Dotpay is a web application that allows you create business account, generate payment links, and receive payments from customers using those generated links.",
   },
   {
     title: "Price Tag",
@@ -138,6 +139,12 @@ export const projectsData = [
     author: "Liu Yi",
     text:
       "I designed 3rd oneI designed 3rd oneI designed 3rd oneI desig I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one ned 3rd oneI designed 3rd oneI designed 3rd one I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one",
+  },
+  {
+    title: "Price Tag",
+    image: require("../assets/background7.jpg"),
+    author: "Liu Yi",
+    text: "I designed 4th one",
   },
 ];
 

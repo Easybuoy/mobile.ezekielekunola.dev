@@ -118,7 +118,7 @@ const Home = ({ navigation }) => {
                 <Logo key={logo.text} image={logo.image} text={logo.text} />
               ))}
             </ScrollView>
-            <Subtitle>Projects</Subtitle>
+            <Subtitle>Articles</Subtitle>
 
             {loading === true ? (
               <Spinner>
@@ -153,7 +153,7 @@ const Home = ({ navigation }) => {
               </ScrollView>
             )}
 
-            <Subtitle>Articles</Subtitle>
+            <Subtitle>Projects</Subtitle>
 
             <ScrollView
               contentContainerStyle={{
