@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import CourseSection from "../components/courses/CourseSection";
 import ComponentCourses from "../components/courses/Courses";
+import { sectionsData } from "../data";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -19,18 +20,16 @@ const Courses = ({ navigation }) => {
             style={{
               position: "absolute",
               width: screenWidth,
-              height: 460,
+              height: 300,
             }}
           />
-          <Logo source={require("../assets/logo-react.png")} />
-          <Caption>12 Sections</Caption>
-          <Title>React Native for Designers</Title>
+          <Caption>Skills</Caption>
           <Sections>
             <SectionScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
             >
-              {sections.map((section, index) => (
+              {sectionsData.map((section, index) => (
                 <CourseSection
                   key={index}
                   title={section.title}
@@ -42,10 +41,10 @@ const Courses = ({ navigation }) => {
           </Sections>
           <Author>
             <Avatar source={require("../assets/avatar.jpg")} />
-            <Name>Taught by Meng To</Name>
+            <Name>Ezekiel Ekunola</Name>
           </Author>
         </Hero>
-        <Subtitle>Latest Courses</Subtitle>
+        <Subtitle>Articles</Subtitle>
         <ComponentCourses />
       </Container>
     </ScrollView>
@@ -64,7 +63,7 @@ const ScrollView = styled.ScrollView`
 `;
 
 const Hero = styled.View`
-  height: 460px;
+  height: 300px;
   background: #3c4560;
 `;
 
@@ -72,16 +71,8 @@ const Background = styled.Image`
   position: absolute;
   top: 0;
   left: 0;
-  /* width: ${screenWidth}; */
-  height: 460px;
-`;
-
-const Logo = styled.Image`
-  width: 48px;
-  height: 48px;
-  margin-top: 50px;
-  margin-left: 20px;
-  align-self: center;
+  width: ${screenWidth}px;
+  height: 300px;
 `;
 
 const Caption = styled.Text`
@@ -89,17 +80,8 @@ const Caption = styled.Text`
   font-weight: 600;
   text-transform: uppercase;
   color: #b8bece;
-  margin-top: 20px;
   margin-left: 20px;
-`;
-
-const Title = styled.Text`
-  font-size: 32px;
-  color: white;
-  font-weight: 600;
-  margin-top: 4px;
-  margin-left: 20px;
-  width: 220px;
+  margin-top: 50px;
 `;
 
 const Sections = styled.View`
@@ -137,31 +119,3 @@ const Subtitle = styled.Text`
   color: #b8bece;
   margin: 20px 0 0 20px;
 `;
-
-const sections = [
-  {
-    title: "React Native for Designers",
-    progress: 0.2,
-    image: require("../assets/background1.jpg"),
-  },
-  {
-    title: "Styled Components",
-    progress: 0.3,
-    image: require("../assets/background2.jpg"),
-  },
-  {
-    title: "Assets, Icons and SVG",
-    progress: 0.9,
-    image: require("../assets/background3.jpg"),
-  },
-  {
-    title: "Props and Data",
-    progress: 0.5,
-    image: require("../assets/background4.jpg"),
-  },
-  {
-    title: "States and Layout Animation",
-    progress: 0.1,
-    image: require("../assets/background6.jpg"),
-  },
-];

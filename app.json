@@ -19,10 +19,16 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "io.ezekielekunola"
+      "bundleIdentifier": "com.ezekielekunola.ezekiel-ekunola",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "package": "io.ezekielekunola"
+      "package": "com.ezekielekunola.ezekiel_ekunola",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#4E0250"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

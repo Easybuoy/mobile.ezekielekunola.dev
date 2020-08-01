@@ -22,6 +22,7 @@ import Menu from "../components/Menu";
 import ModalLogin from "../components/ModalLogin";
 import NotificationButton from "../components/NotificationButton";
 import Notifications from "../components/Notifications";
+import Colors from "../constants/Colors";
 
 const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
@@ -153,7 +154,7 @@ const Home = ({ navigation }) => {
               </ScrollView>
             )}
 
-            <Subtitle>Projects</Subtitle>
+            <Subtitle>Articles</Subtitle>
 
             <ScrollView
               contentContainerStyle={{
@@ -226,7 +227,7 @@ const Avatar = styled.Image`
 `;
 
 const Subtitle = styled.Text`
-  color: #b8bece;
+  color: ${Colors.GREY};
   font-weight: 600;
   font-size: 15px;
   margin-left: 20px;

@@ -87,20 +87,7 @@ const TabNavigator = () => {
           };
         }}
       />
-      <Tab.Screen
-        name="Courses"
-        component={CoursesStack}
-        options={{
-          tabBarLabel: "Course",
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name="ios-albums"
-              size={26}
-              color={focused ? Colors.PRIMARY : Colors.GREY}
-            />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Projects"
         component={ProjectsStack}
@@ -109,6 +96,20 @@ const TabNavigator = () => {
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="ios-folder"
+              size={26}
+              color={focused ? Colors.PRIMARY : Colors.GREY}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="More"
+        component={CoursesStack}
+        options={{
+          tabBarLabel: "More",
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name="ios-albums"
               size={26}
               color={focused ? Colors.PRIMARY : Colors.GREY}
             />
