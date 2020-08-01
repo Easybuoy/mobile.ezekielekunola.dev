@@ -5,6 +5,7 @@ import {
   CLOSE_CARD,
   OPEN_LOGIN,
   CLOSE_LOGIN,
+  UPDATE_NAME,
 } from "../types";
 
 export const closeMenu = () => {
@@ -46,5 +47,12 @@ export const closeLogin = () => {
   return {
     type: CLOSE_LOGIN,
     payload: {},
+  };
+};
+
+export const updateName = (name) => {
+  return {
+    type: UPDATE_NAME,
+    payload: { name },
   };
 };

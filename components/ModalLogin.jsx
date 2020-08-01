@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BlurView } from "expo-blur";
 import Success from "./ui/Success";
 import Loading from "./ui/Loading";
-import { closeLogin } from "../store/actions/action";
+import { closeLogin, updateName } from "../store/actions/action";
 import firebase from "../config/Firebase";
 
 const screenHeight = Dimensions.get("window").height;
@@ -37,6 +37,7 @@ const ModalLogin = () => {
   const action = useSelector((state) => state.action.action);
 
   useEffect(() => {
+    retreiveName();
     if (action === "openLogin") {
       Animated.timing(top, {
         toValue: 0,
@@ -112,7 +113,8 @@ const ModalLogin = () => {
     try {
       const name = await AsyncStorage.getItem("name");
       if (name !== null) {
-        console.log(name)
+        console.log(name);
+        dispatch(updateName(name));
       }
       // return name;
     } catch (error) {}

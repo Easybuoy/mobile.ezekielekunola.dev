@@ -5,37 +5,50 @@ import {
   CLOSE_CARD,
   OPEN_LOGIN,
   CLOSE_LOGIN,
+  UPDATE_NAME,
 } from "../types";
 
 const INITIALSTATE = {
   action: "",
+  name: "Stranger",
 };
 
 export default (state = INITIALSTATE, action) => {
   switch (action.type) {
     case OPEN_MENU:
       return {
+        ...state,
         action: "openMenu",
       };
     case CLOSE_MENU:
       return {
+        ...state,
         action: "closeMenu",
       };
     case OPEN_CARD:
       return {
+        ...state,
         action: "openCard",
       };
     case CLOSE_CARD:
       return {
+        ...state,
         action: "closeCard",
       };
     case OPEN_LOGIN:
       return {
+        ...state,
         action: "openLogin",
       };
     case CLOSE_LOGIN:
       return {
+        ...state,
         action: "closeLogin",
+      };
+    case UPDATE_NAME:
+      return {
+        ...state,
+        name: action.payload.name,
       };
     default:
       return state;

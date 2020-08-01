@@ -27,6 +27,7 @@ const Home = ({ navigation }) => {
   const [opacity] = useState(new Animated.Value(1));
   const dispatch = useDispatch();
   const menuStateAction = useSelector((state) => state.action.action);
+  const name = useSelector((state) => state.action.name);
   const { loading, error, data } = useQuery(CARDSQUERY);
 
   const toggleMenu = () => {
@@ -84,7 +85,7 @@ const Home = ({ navigation }) => {
                 <Avatar source={require("../assets/avatar.jpg")} />
               </TouchableOpacity>
               <Title>Welcome Back,</Title>
-              <Name>Ezekiel</Name>
+              <Name>{name}</Name>
 
               <NotificationIcon
                 style={{ position: "absolute", right: 20, top: 5 }}
