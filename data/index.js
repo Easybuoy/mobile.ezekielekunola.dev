@@ -140,3 +140,24 @@ export const projectsData = [
       "I designed 3rd oneI designed 3rd oneI designed 3rd oneI desig I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one ned 3rd oneI designed 3rd oneI designed 3rd one I designed 3rd oneI designed 3rd oneI designed 3rd oneI designed 3rd one",
   },
 ];
+
+export const notificationsData = [
+  {
+    logo: "https://cl.ly/a4d00a918f39/download/logo-vue.png",
+    title: "Vue.js for designers",
+    text: "Make a dashboard for web-app",
+    date: "23 Jan",
+  },
+  {
+    logo: "https://cl.ly/a4d00a918f39/download/logo-vue.png",
+    title: "Invision Studio",
+    text: "Make a dashboard for web-app",
+    date: "27 Nov",
+  },
+  {
+    logo: "https://cl.ly/a4d00a918f39/download/logo-vue.png",
+    title: "Vue.js for designers",
+    text: "Make a dashboard for web-app",
+    date: "23 Feb",
+  },
+];

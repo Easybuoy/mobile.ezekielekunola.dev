@@ -11,12 +11,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 
 import { closeNotif } from "../store/actions/action";
+import { notificationsData } from "../data";
 
 const screenWidth = Dimensions.get("window").width;
 
-let cardWidth = screenWidth - 40;
+let cardWidth = `${screenWidth - 40}px `;
 if (screenWidth > 500) {
-  cardWidth = 460;
+  cardWidth = `${460}px`;
 }
 
 const Notifications = () => {
@@ -28,8 +29,9 @@ const Notifications = () => {
 
   useEffect(() => {
     toggleNotification();
-  }, []);
+  }, [action, toggleNotification]);
 
+  console.log(action, "a");
   const toggleNotification = () => {
     if (action === "openNotif") {
       Animated.parallel([
@@ -75,7 +77,7 @@ const Notifications = () => {
   };
 
   return (
-    <AnimatedContainer>
+    <AnimatedContainer style={{ top }}>
       <TouchableOpacity
         onPress={() => dispatch(closeNotif())}
         style={{
@@ -93,7 +95,30 @@ const Notifications = () => {
 
       <SafeAreaView>
         <ScrollView style={{ padding: 20 }}>
-            
+          <Wrapper>
+            <Subtitle>New</Subtitle>
+            {notificationsData.map((notification) => (
+              <AnimatedItem
+                key={notification.date}
+                style={{
+                  opacity,
+                  transform: [{ translateY }],
+                }}
+              >
+                <Header>
+                  <Logo
+                    source={{ uri: notification.logo }}
+                    resizeMode="contain"
+                  />
+                  <Title>{notification.title}</Title>
+                  <DateContainer>
+                    <Date>{notification.date}</Date>
+                  </DateContainer>
+                </Header>
+                <Text>{notification.text}</Text>
+              </AnimatedItem>
+            ))}
+          </Wrapper>
         </ScrollView>
       </SafeAreaView>
     </AnimatedContainer>
@@ -101,3 +126,93 @@ const Notifications = () => {
 };
 
 export default Notifications;
+
+const Container = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #f0f3f5;
+`;
+
+const AnimatedContainer = Animated.createAnimatedComponent(Container);
+
+const CloseButton = styled.View`
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+`;
+
+const Wrapper = styled.View`
+  align-self: center;
+  width: ${cardWidth};
+  padding-top: 50px;
+`;
+
+const Subtitle = styled.Text`
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #b8bece;
+`;
+
+const Item = styled.View`
+  width: 100%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 50px 10px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+`;
+
+const AnimatedItem = Animated.createAnimatedComponent(Item);
+
+const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Logo = styled.Image`
+  width: 24px;
+  height: 24px;
+`;
+
+const DateContainer = styled.View`
+  background: #4775f2;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 8px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const Date = styled.Text`
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+`;
+
+const Title = styled.Text`
+  font-size: 20px;
+  color: #3c4560;
+  font-weight: bold;
+  margin-left: 8px;
+`;
+
+const Text = styled.Text`
+  font-size: 17px;
+  color: #3c4560;
+  margin-top: 20px;
+  line-height: 24px;
+`;

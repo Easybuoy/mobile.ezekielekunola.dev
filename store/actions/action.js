@@ -59,14 +59,14 @@ export const updateName = (name) => {
   };
 };
 
-export const openNotif = (name) => {
+export const openNotif = () => {
   return {
     type: OPEN_NOTIFICATION,
     payload: {},
   };
 };
 
-export const closeNotif = (name) => {
+export const closeNotif = () => {
   return {
     type: CLOSE_NOTIFICATION,
     payload: {},

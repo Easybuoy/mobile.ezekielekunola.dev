@@ -13,15 +13,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-apollo";
 
 import { CARDSQUERY } from "../graphql/queries";
-import { openMenu, openLogin } from "../store/actions/action";
+import { openMenu, openLogin, openNotif } from "../store/actions/action";
 import Card from "../components/Card";
-import { NotificationIcon } from "../components/Icons";
 import Logo from "../components/Logo";
-import { logoData, cardsData, coursesData } from "../data";
+import { logoData, coursesData } from "../data";
 import Course from "../components/Course";
 import Menu from "../components/Menu";
 import ModalLogin from "../components/ModalLogin";
 import NotificationButton from "../components/NotificationButton";
+import Notifications from "../components/Notifications";
 
 const Home = ({ navigation }) => {
   const [scale] = useState(new Animated.Value(1));
@@ -79,6 +79,7 @@ const Home = ({ navigation }) => {
   return (
     <RootView>
       <Menu />
+      <Notifications />
       <AnimatedContainer style={{ transform: [{ scale }], opacity }}>
         <SafeAreaView>
           <ScrollView>
@@ -93,7 +94,7 @@ const Home = ({ navigation }) => {
               <Name>{name}</Name>
 
               <TouchableOpacity
-                onPress={() => openNotif()}
+                onPress={() => dispatch(openNotif())}
                 style={{ position: "absolute", right: 20, top: 5 }}
               >
                 <NotificationButton />
