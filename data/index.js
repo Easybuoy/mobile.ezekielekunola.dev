@@ -173,15 +173,15 @@ export const projectsData = [
 
 export const notificationsData = [
   {
-    logo: "https://cl.ly/a4d00a918f39/download/logo-vue.png",
-    title: "Vue.js for designers",
-    text: "Make a dashboard for web-app",
-    date: "23 Jan",
+    logo: require("../assets/logo-vue.png"),
+    title: "Chakra UI Vue",
+    text: "Setting up Chakra UI Vue with Nuxt",
+    date: "5 Aug",
   },
   {
-    logo: "https://cl.ly/a4d00a918f39/download/logo-vue.png",
+    logo: require("../assets/logo-react.png"),
     title: "Invision Studio",
-    text: "Make a dashboard for web-app",
+    text: "Authentication flow in React-native using Redux",
     date: "27 Nov",
   },
 ];

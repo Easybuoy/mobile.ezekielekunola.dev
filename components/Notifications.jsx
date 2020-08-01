@@ -106,10 +106,7 @@ const Notifications = () => {
                 }}
               >
                 <Header>
-                  <Logo
-                    source={{ uri: notification.logo }}
-                    resizeMode="contain"
-                  />
+                  <Logo source={notification.logo} resizeMode="contain" />
                   <Title>{notification.title}</Title>
                   <DateContainer>
                     <Date>{notification.date}</Date>
