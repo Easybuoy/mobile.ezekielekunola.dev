@@ -17,6 +17,7 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
+    "sdkVersion": "38.0.2",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ezekielekunola.ezekiel-ekunola",
