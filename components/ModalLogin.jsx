@@ -80,6 +80,7 @@ const ModalLogin = () => {
 
   const loginHandler = () => {
     setIsLoading(true);
+    Keyboard.dismiss()
 
     firebase
       .auth()
